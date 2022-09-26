@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Привет, HTML!</title>
+
+</head>
+    <h2>123123123</h2>
+    <h1>Посчитаем до 10 вместе с JavaScript!</h1>
+    <p id="theCount"></p>
+    <p id="theCount1"></p>
+    <button id="bigButton" onclick="countToTen();">Щелкни сюда!</button>
+    <script>
+        function countToTen () {
+        var count = 0;
+        while (count < 10) {
+            count++;
+            document.getElementById("theCount").innerHTML +=
+                count + "<br>"
+        }
+    }
+        var count = 0;
+        while (count < 10) {
+            count++;
+            document.getElementById("theCount1").innerHTML +=
+                count + "<br>"
+        }
+</script>
+</body>
+</html>
