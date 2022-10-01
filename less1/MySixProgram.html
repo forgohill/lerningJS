@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест строковые переменные</title>
+</head>
+<body>
+    <button id="bigButton" onclick="alert ('Привет, Мир!')">Щелкни сюда!</button>
+    <script>
+        var watzThisString = 'JavaScript - это здорово!';
+        console.log (watzThisString.charAt(3));
+        //возвращает "a"
+        console.log (watzThisString.concat(' Нам нравится JavaScrpt!'));
+        // возвращает "JavaScript - это здорово! Нам нравится JavaScrpt!"
+        console.log (watzThisString.indexOf('здорово'));
+        // возвращает 17
+        console.log (watzThisString.split("з"));
+        // возвращает [JavaScript - это , дорово!]
+        console.log (watzThisString.substr(2,5));
+        // возвращает vaScr
+        console.log (watzThisString.substring(2,5));
+        //возвращает "vaS"
+        console.log (watzThisString.toLowerCase());
+        //возвращает "javascript - это здорово!"
+        console.log (watzThisString.toUpperCase());
+    </script>
+</body>
+</html>
