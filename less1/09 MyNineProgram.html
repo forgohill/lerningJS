@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Масивы</title>
+</head>
+<body>
+    <button id="bigButton" onclick="console.log (catNames)">Массив с кошками</button><br><br>
+    <button id="bigButton" onclick="console.log (dogNames)">Массив с собаками</button><br><br>
+    <button id="bigButton" onclick="console.log (peopleList)">Массив с человеками</button><br><br>
+    <button id="bigButton" onclick="console.log (peopleList.length)">Смотрим length массива с человеками</button><br><br>
+    <button id="bigButton" onclick="console.log (bestAlbumsByGenre)">Массив с песнями</button><br><br>
+    <script>
+        var catNames = new Array ("Larry", "Fuzzball", "Mr. Furly");
+        //создали массив var (имя массива new Array ())
+        var dogNames = ["Shaggy", "Tenesse", "Dr.Spock"];
+        //создали массив var (имя массива ["1", "2","3"])
+        var peopleList = [];
+        peopleList[0] = "Cris Minnick";
+        peopleList[1] = "Eva Holland";
+        peopleList[2] = "Abraham Lincoln";
+        //создали массив var (мия массивы)
+        //(имя масиива [0]) = "";
+        //(имя масиива [1]) = "";
+        //(имя масиива [2]) = "";
+        peopleList[99] = "Tina Turner";
+        //(имя масиива [99]) = "";
+
+        var bestAlbumsByGenre = [];
+
+        bestAlbumsByGenre [0] = [];
+        bestAlbumsByGenre [0][0] = [];
+
+        bestAlbumsByGenre [0] = "Country";
+        bestAlbumsByGenre [0][0] = "Johny Cash: Live at Folsom Prison";
+        bestAlbumsByGenre [0][1] = "Patsy Cline: Sentimentally Yours";
+        bestAlbumsByGenre [0][2] = "Hans Williams: I'm Blue Inside";
+        bestAlbumsByGenre [1] = "Rock";
+        bestAlbumsByGenre [1][0] = "T-Rex: Slider";
+        bestAlbumsByGenre [1][1] = "Nirvana: Nevermind";
+        bestAlbumsByGenre [1][2] = "Lou Reed: Transformer";
+        bestAlbumsByGenre [2] = "Punk";
+        bestAlbumsByGenre [2][0] = "Flipper: Generic";
+        bestAlbumsByGenre [2][1] = "The Dead Milkmen: Big Lizard in my Backyard";
+        bestAlbumsByGenre [2][2] = "Patti Smith: Easter";
+    </script>
+</body>
+</html>
