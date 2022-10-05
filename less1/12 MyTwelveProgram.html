@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Арифметические операторы</title>
+</head>
+<body>
+    <h1> Отгадывание даты рождения</h1>
+    <P>
+        <ul>
+            <li>Введите число 7</li>
+            <li>Умножьте его на месяц вашего рождения</li>
+            <li>Вычтите 1</li>
+            <li>Умножьте результат на 13</li>
+            <li>Добавте число вашего дня рождения</li>
+            <li>Добавте 3</li>
+            <li>Умножьте результут на 11</li>
+            <li>Вычтите месяц вашего рождения</li>
+            <li>Вычтите число вашего дня рождения</li>
+            <li>Разделите результат на 10</li>
+            <li>Добавте 11</li>
+            <li>Разделите результат на 100</li>
+        </ul>
+    </P>
+    <script>
+        let numberSeven = Number(prompt('Введите число 7'));
+        let birtMonth = Number(prompt('Введите месяц вашего рождения'));
+        let calculation = numberSeven * birtMonth;
+        calculation = calculation - 1;
+        calculation = calculation * 13;
+        let birtDay = Number(prompt('Введите число вашего дня рождения'));
+        calculation = calculation + birtDay;
+        calculation = calculation + 3;
+        calculation = calculation * 11;
+        calculation = calculation - birtMonth;
+        calculation = calculation - birtDay;
+        calculation = calculation / 10;
+        calculation = calculation + 11;
+        calculation = calculation / 100;
+        document.write ("Вы родились " + calculation);
+    </script>
+</body>
+</html>
