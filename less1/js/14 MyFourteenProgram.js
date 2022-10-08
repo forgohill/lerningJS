@@ -7,7 +7,7 @@ while (num < 5) {
     num++;
 }
 
-let underscore = "_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_";
+let underscore = "__________________________";
 console.log (underscore);
 
 let num1 = 5;
@@ -68,6 +68,16 @@ first1For: for (let num9 = 0; num9 < 2; num9++) {
             break first1For;
         }
         console.log (size1);
+    }
+}
+console.log (underscore);
+
+first2For: for (let num10 = 0; num10 < 2; num10++) {
+    for (let size2 = 0; size2 < 3; size2++) {
+        if (size2 == 2) {
+            continue first2For;
+        }
+        console.log (size2);
     }
 }
 console.log (underscore);
