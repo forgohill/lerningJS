@@ -14,22 +14,27 @@ document.write ("<br>");
 document.write ('__________________________');
 document.write ("<br>");
 
-
-
-
-
-document.write ("<br>");
-document.write ('__________________________');
-document.write ("<br>");
-
-for (let prop in document) {
-    document.write (prop +"<br>");
-}
+let quessedWord = String(prompt("Какое слово я задумал ?"));
+while (quessedWord != "сэндвич") {
+    if (quessedWord == "") {break}
+    quessedWord = String(prompt ("Нет это не " + quessedWord + " !" + "Попробуйте ще раз!")); }
+    alert ("Поздравляю! Это именно то слово!");
 
 document.write ("<br>");
 document.write ('__________________________');
 document.write ("<br>");
 
-for (let prop in document) {
-    document.write (prop + ": " + document[prop] + "<br>")
+let i = 0;
+do {
+    i++;
+    document.write (i + "_" + "<br>");
+} while (i < 10);
+
+for (let  y = 0; y <= 20; y++){
+    if (у = 0) {
+        continue;}
+    if (y%2 != 0) {
+    continue;}
+
+    console.log (y + " - четное число!");
 }
