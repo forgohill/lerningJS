@@ -113,3 +113,19 @@ function showNumber3 (num3) {
     }
 }
 let timeID3 = setInterval (showNumber3, 1000, 1);
+
+// функция соединения строк
+function createMessage(text5, name5) {
+    return `${text5}, ${name5}!`;
+}
+
+// функция вывода в консоль
+function showMessage5(message) {
+    console.log (message);
+}
+// Объединяющая функция, вызывает обе функции
+function initMessage(text5, name5) {
+    showMessage5(createMessage(text5, name5));
+}
+
+initMessage('Привет','фрилансер');
