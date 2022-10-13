@@ -67,3 +67,49 @@ let getMessage1 = (text, name2) => {
     return message;
 };
 console.log (getMessage1('Привет', 'Витёк'));
+
+function showMessage3 (text2, name2) {
+    console.log (`${text2}, ${name2}!!!`);
+}
+// setTimeout(showMessage3, 3000, 'Привет', 'Вася');
+// setInterval(showMessage3, 500, 'Привет', 'Вася!!!!');
+
+// Рекурсивный интервал
+function showMessage4 (text4, name4) {
+    console.log (`${text4}, ${name4}!!!`);
+    setTimeout(showMessage4, 500, 'Привет', '!!!');
+}
+// setTimeout(showMessage4, 500, 'Привет', '!!!');
+
+// Планирование setTimeout и setInterval
+
+function showNumber(num) {
+    console.log (num);
+    if (num < 5) {
+        setTimeout (showNumber, 15, ++num)
+    }
+}
+setTimeout (showNumber, 15, 1);
+
+// clearTimeout - останавливает действия планировщика
+
+function showNumber2(num2) {
+    console.log (num2)
+    let timeID = setTimeout (showNumber2, 1000, ++num2);
+    if (num2 === 6) {
+        clearTimeout (timeID);
+    }
+}
+setTimeout (showNumber2, 1000, 1);
+
+// clearTimeout - останавливает действия планировщика
+// пример для setInterval
+let result = 0;
+function showNumber3 (num3) {
+    result += num3;
+    console.log (result);
+    if (result === 5) {
+        clearInterval (timeID3);
+    }
+}
+let timeID3 = setInterval (showNumber3, 1000, 1);
