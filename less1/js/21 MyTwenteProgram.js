@@ -85,3 +85,60 @@ function myTacos(meat,produce) {
     console.log(produce); // выведет "onions"
 }
 myTacos ("beef","onions")
+
+// передача аргументов по значению
+
+/**
+ * Инкрементирование двух значений
+ * @param {number} number1
+ * @param {number} number2
+ */
+
+function addToMyNumbers (number1,number2) {
+    number1++;
+    number2++;
+    console.log ("Значение number 1 в функции : " + number1);
+    console.log ("Значение number 2 в функции : " + number2);
+}
+
+let number1 = 3;
+let number2 = 12;
+
+addToMyNumbers(number1,number2);
+
+console.log ("Исходное number 1 в функции : " + number1);
+console.log ("Исходное number 2 в функции : " + number2);
+
+// проверка на undefined в заголовке функции
+function welcome (yourName = "друг") {
+    document.write ("Привет, " + yourName + "<br>");
+}
+welcome("Пидарас");
+welcome("Чёрт");
+welcome();
+
+document.write('<br>');
+document.write('------------------');
+document.write('<br>');
+
+/**
+ * Гибкое приветвенное сообщение
+ */
+
+function flexibleWelcome() {
+    let welcome = "Добро пожаловать, ";
+    for (i = 0; i < arguments.length; i++) {
+        welcome = welcome + arguments[i] + "";
+    }
+    return welcome;
+}
+document.write (flexibleWelcome("Кристофер ","Джеймс ","Феникс ","Минник ","<br>"));
+document.write (flexibleWelcome("Ева ","Аня ","Холанд ","<br>"));
+
+// выводит в окно браузера :
+// Добро пожаловать, Кристофер Джеймс Феникс Минник
+// Добро пожаловать, Ева Аня Холанд
+
+document.write('<br>');
+document.write('------------------');
+document.write('<br>');
