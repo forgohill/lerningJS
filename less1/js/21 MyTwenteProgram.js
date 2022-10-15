@@ -42,4 +42,46 @@ let sum3 = addNumbers(myNumbers3);
 
 document.write(sum1 + '<br>');
 document.write(sum2 + '<br>');
-document.write(sum3 + '<br>'); 
+document.write(sum3 + '<br>');
+
+document.write('<br>');
+document.write('------------------');
+document.write('<br>');
+
+/*
+*выводит текущю дату в окно браузера
+*/
+function getTheDate() {
+    let rightNow = new Date();
+    document.write(rightNow.toDateString());
+}
+getTheDate();
+
+document.write('<br>');
+document.write('------------------');
+document.write('<br>');
+
+// пример: возврат значиения функции
+function getHello() {
+    return "Привет!";
+}
+let helloText = getHello();
+console.log (helloText);
+
+// пример: возврат результата вычисления выражения
+function getCircumference() {
+    let radius = 12;
+    return 2 * Math.PI * radius;
+}
+console.log (getCircumference());
+
+/*
+*пример создания функции с парметрами и
+*задача такой функции аргументов с последующим
+*возвращением этих аргументов в консоль
+*/
+function myTacos(meat,produce) {
+    console.log(meat); // выведет "beef"
+    console.log(produce); // выведет "onions"
+}
+myTacos ("beef","onions")
