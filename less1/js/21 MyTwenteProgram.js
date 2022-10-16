@@ -142,3 +142,54 @@ document.write (flexibleWelcome("Ева ","Аня ","Холанд ","<br>"));
 document.write('<br>');
 document.write('------------------');
 document.write('<br>');
+
+// Анонимные функции
+let doTheThing = function (thingToDo) {
+    document.write("сделать следующее: "+ thingToDo);
+}
+doTheThing(("анжумания, приседания 10 разов"));
+
+document.write('<br>');
+document.write('------------------');
+document.write('<br>');
+
+// Самовыполняющиеся анонимные функции
+let myVariable = "Я нахожусь вне функции. <br>";
+(function () {
+    let myVariable = "Я нахожусь внутри этой анонимной функции. <br>";
+    document.write (myVariable);
+})();
+document.write (myVariable);
+
+document.write('<br>');
+document.write('------------------');
+document.write('<br>');
+
+// РЕКУРСИЯ
+
+// Бескончная рекурсия
+function squareItUp(startingNumber) {
+    let square = startingNumber * startingNumber;
+    console.log (square);
+    squareItUp(square);
+}
+// При запуске функции - она начент вызывать
+// сама себя бесконечное количество раз
+// масимум стеков 10242
+
+// отключение рекурсии при выполнении
+// базового случая
+function squareItUp2(startingNumber) {
+    // условие прекращения выполнения, неверный ввод
+    if ((typeof startingNumber != 'number') ||
+        (startingNumber <= 1)) {
+            return - 1;
+        }
+        
+    square = startingNumber * startingNumber;
+    if (square > 1000000) {
+        console.log (square);
+    } else {
+        squareItUp2 (square);
+    }
+}
