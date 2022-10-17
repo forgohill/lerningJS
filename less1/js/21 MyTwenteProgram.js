@@ -193,3 +193,20 @@ function squareItUp2(startingNumber) {
         squareItUp2 (square);
     }
 }
+
+// Функции созданые внутри других функций
+function turnIntoAMartian(myName) {
+    
+    function recallName(myName) {
+        let martinName = myName + "Марсианин";
+    }
+    recallName(myName);
+    console.log(martianName); // вернет undefined
+}
+/**
+ * Если запустить turnIntoAMartian("string")
+ * то выскочит ошибка
+ * Uncaught ReferenceError: martianName is not defined
+ * непойманная ссылка
+ * recallName("string"), тоже самое
+ */
