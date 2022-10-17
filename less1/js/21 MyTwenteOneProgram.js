@@ -195,14 +195,7 @@ function squareItUp2(startingNumber) {
 }
 
 // Функции созданые внутри других функций
-function turnIntoAMartian(myName) {
-    
-    function recallName(myName) {
-        let martinName = myName + "Марсианин";
-    }
-    recallName(myName);
-    console.log(martianName); // вернет undefined
-}
+
 /**
  * Если запустить turnIntoAMartian("string")
  * то выскочит ошибка
@@ -210,3 +203,31 @@ function turnIntoAMartian(myName) {
  * непойманная ссылка
  * recallName("string"), тоже самое
  */
+
+function turnIntoAMartian(myName) {
+    
+    function recallName(myName) {
+        let martianName = myName + "Марсианин";
+        return martianName;
+    }
+    recallName(myName);
+    console.log(martianName); // вернет undefined
+}
+
+
+/**
+ * для того чтобы предидущий код
+ * работал в него необходимо добавить инструкцию return
+ */
+
+function turnIntoAMartian2(myName2) {
+    function recallName2(myName2) {
+        let martianName2 = myName2 + "Марсианин";
+        return martianName2;
+    }
+    let martianName2 = recallName2();
+    console.log(martianName2);
+}
+// я нихуя не понял этот код
+// первый параметр почему то вырубается
+// говорит нахер не нужен вам первый параметр
