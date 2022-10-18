@@ -115,3 +115,39 @@ function makeUserInfo11(name, age) {
 let user11 = makeUserInfo11 ("Вася",30);
 console.log(user11);
 console.log("------------------11-");
+
+
+function makeUserInfo12(name,age) {
+    return {
+        name,
+        age,
+        "likes javascript": true,
+    }
+}
+let user12 = makeUserInfo12("Вася",30);
+console.log(user12);
+console.log("------------------12-");
+
+// изменение объекта
+// добавление объекта
+let userInfo13 = {
+    name: "Вася-13",
+}
+console.log(userInfo13);
+
+userInfo13.age = 30;
+
+console.log(userInfo13);
+
+userInfo13["likes javascript"] = true;
+
+console.log(userInfo13);
+
+userInfo13.adress = {
+    city: "Нижний Новгород",
+    street: "Тонкинская",
+};
+
+console.log(userInfo13);
+
+console.log("------------------13-");
