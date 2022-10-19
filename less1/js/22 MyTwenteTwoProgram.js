@@ -151,3 +151,133 @@ userInfo13.adress = {
 console.log(userInfo13);
 
 console.log("------------------13-");
+
+// удаление свойств
+let userInfo14 = {
+    name: "Вася",
+    age: 30,
+    "likes javascript": true,
+};
+
+console.log(userInfo14);
+
+delete userInfo14.age;
+
+console.log(userInfo14);
+
+delete userInfo14["likes javascript"];
+
+console.log(userInfo14);
+
+console.log("------------------14-");
+
+// изменение свойств
+
+let userInfo15 = {
+    name: "Вася",
+    age: 30,
+    "likes javascript": true,
+};
+
+userInfo15.age = 15;
+
+console.log(userInfo15);
+console.log("------------------15-");
+
+const userInfo16 = {
+    name: "Вася",
+    age: 30,
+    "likes javascript": true,
+};
+
+userInfo16.age = 17;
+
+console.log(userInfo16);
+console.log("------------------16-");
+
+//  копирование объектов в другую переменную
+//  сам объект не дублируется, а копируется
+//  только ссылка на него
+
+let userInfo17 = {
+    name: "Вася",
+    age: 30,
+};
+
+let user17 = userInfo17;
+
+console.log(user17);
+
+user17.age = 18;
+
+console.log(user17);
+
+console.log(userInfo17);
+console.log("------------------17-");
+
+// дублирование объекта
+let userInfo18 = {
+    name: "Вася",
+    age: 30,
+};
+
+let user18 = Object.assign ({}, userInfo18)
+user18.age = 18;
+console.log(user18);
+console.log(userInfo18);
+console.log("------------------18-");
+
+// дублирование нескольких свойств 
+// из объекта в новый объект
+
+let userInfo19 = {
+    name: "Вася",
+    age: 30,
+};
+Object.assign (userInfo19, {['likes javascript']:true, city:"Нижний Новгород",})
+console.log(userInfo19);
+console.log("------------------19-");
+
+// проверка существования свойств
+// проверка c помощью if
+let userInfo20 = {
+    name: "Вася",
+    // age: 30 ,
+};
+if (userInfo20.age) {
+    //true или false
+    console.log(userInfo20.age);
+};
+console.log("------------------20-");
+
+// проверка существования свойств
+// опциональная цепочка
+let userInfo21 = {
+    name: "Вася",
+    age: 30,
+    // address: {
+        // city: "Нижний Новгород",
+        // street: "Тонкинская",
+    // }
+};
+
+// console.log(userInfo21.address.street);
+console.log(userInfo21?.address?.street);
+console.log("------------------21-");
+
+// проверка существования свойств
+// оператор "in"
+let userInfo22 = {
+    name: "Вася",
+    age: 30,
+    address: {
+        city: "Нижний Новгород",
+        street: "Тонкинская",
+    }
+};
+if ("name" in userInfo22) {
+    console.log ("userInfo22 have name");
+    console.log (userInfo22.name);
+}
+
+console.log("------------------22-");
