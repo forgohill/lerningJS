@@ -281,3 +281,85 @@ if ("name" in userInfo22) {
 }
 
 console.log("------------------22-");
+
+// пример когда используется 
+// оператор in
+// когда одно из свойств undefined
+let userInfo23 = {
+    name: undefined,
+    age: 30 ,
+};
+if (userInfo23.name) {
+    //true или false
+    console.log(userInfo23.name);
+};
+
+if ("name" in userInfo23) {
+    console.log ('userInfo23 name "undefined"');
+    console.log (userInfo23.name);
+}
+console.log("------------------23-");
+
+// пример использования
+// оператора «for... in »
+let userInfo24 = {
+    name: "Вася",
+    age: 30,
+    address: {
+        city: "Нижний Новгород",
+        street: "Тонкинская",
+    }
+};
+for (let key in userInfo24) {
+    console.log(key); // name,age, address
+    // значения ключей
+    console.log(userInfo24[key]);
+    // Вася, 30, Object
+};
+
+for (let key in userInfo24.address) {
+    // ключи
+    console.log(key); // city,street
+    // значения ключей
+    console.log(userInfo24.address[key]);
+    // Нижний Новгород, Тонкинская
+};
+console.log("------------------24-");
+
+// МЕТОДЫ
+// присваиваем одному из свойств
+// функцию (называем метод)
+
+let userInfo25 = {
+    name: "Вася",
+    age: 30,
+    address: {
+        city: "Нижний Новгород",
+        street: "Тонкинская",
+    }
+,
+    showInfo25: function() {
+        console.log(`${userInfo25.name}, ${userInfo25.age} лет. Адрес: г.${userInfo25.address.city}, ул. ${userInfo25.address.street}`);
+},
+};
+userInfo25.showInfo25 ();
+console.log("------------------25-");
+
+// уокроченная запись::
+// как присвоить функцию - свойству объекта
+
+let userInfo26 = {
+    name: "Вася",
+    age: 30,
+    address: {
+        city: "Нижний Новгород",
+        street: "Тонкинская",
+    }
+,
+    showInfo26 () {
+    console.log(`${userInfo26.name}, ${userInfo26.age} лет. Адрес: г.${userInfo26.address.city}, ул. ${userInfo26.address.street}`);
+},
+};
+userInfo26.showInfo26 ();
+console.log("------------------26-");
+
