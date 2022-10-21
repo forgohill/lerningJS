@@ -363,3 +363,95 @@ let userInfo26 = {
 userInfo26.showInfo26 ();
 console.log("------------------26-");
 
+// использование «this» в методах объекта
+let userInfo27 = {
+    name: "Вася",
+    age: 30,
+    address: {
+        city: "Нижний Новгород",
+        street: "Тонкинская",
+    },
+    showInfo27 () {
+        console.log(`${this.name}, ${this.age} лет. Адрес: г.${this.address.city}, ул. ${this.address.street}`);
+    }};
+    userInfo27.showInfo27 ();
+console.log("------------------27-");
+
+// использование «this» в вложеных функциях
+// код выдаст ошибку
+// но в cmрелочном синтаксисе не выдаст
+'use strict'
+let userInfo28 = {
+    name: "Вася",
+    age: 30,
+    address: {
+        city: "Нижний Новгород",
+        street: "Тонкинская",
+    },
+    showInfo28 () {
+        /* function show () {
+        console.log(`${this.name}, ${this.age} лет. Адрес: г.${this.address.city}, ул. ${this.address.street}`);
+        } // выдаст ошибку */
+        let show = () => console.log(`${this.name}, ${this.age} лет. Адрес: г.${this.address.city}, ул. ${this.address.street}`);
+        show ();
+    },
+};
+    userInfo28.showInfo28 ();
+console.log("------------------28-");
+
+// преимущество использование «this»
+let userInfo29 = {
+    name: "Вася",
+    age: 30,
+    address: {
+        city: "Нижний Новгород",
+        street: "Тонкинская",
+    },
+    showInfo29 () {
+        // console.log(`${userInfo29.name}, ${userInfo29.age} лет. Адрес: г.${userInfo29.address.city}, ул. ${userInfo29.address.street}`);
+        // Uncaught TypeError: Cannot read properties of null (reading 'name')
+        console.log(`${this.name}, ${this.age} лет. Адрес: г.${this.address.city}, ул. ${this.address.street}`);
+    }};
+    userInfo29.showInfo29 ();
+
+    let user = userInfo29;
+    userInfo29 = null;
+    user.showInfo29();
+console.log("------------------29-");
+
+
+// функция-конструктор
+function UserInfo30(name) {
+    // this = {}; создается пустой объект (неявно)
+    this.name = name;
+    this.age = 30;
+
+    // return this; возвращается объект (неявно)
+}
+
+console.log(new UserInfo30('Вася'));
+console.log(new UserInfo30('Ленусик'));
+console.log("------------------30-");
+
+let userInfo31 = {
+    name: "Вася",
+    age: 30,};
+    for (const key in userInfo31) {
+    const value = userInfo31[key];
+    console.log(value);
+        };
+
+console.log("------------------31-");
+
+// домашка задание 8
+let userInfo32 = {
+    
+};
+userInfo32.name = "Вася";
+userInfo32.age = 30;
+console.log(userInfo32);
+userInfo32.name = "Лена";
+console.log(userInfo32);
+delete userInfo32.name;
+console.log(userInfo32);
+console.log("------------------32-");
