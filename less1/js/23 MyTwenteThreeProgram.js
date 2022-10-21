@@ -40,3 +40,30 @@ personObject[personProperty] = "Luisa"
 
 console.log(personObject);
 console.log("->-----------------4-");
+
+let myChair = {
+    "chashionMaterial": "",
+    "numberOfLegs": "",
+    "legHeight": "",
+};
+function configureChair() {
+    let userValue;
+    for(let property in myChair){
+        if (myChair.hasOwnProperty(property)) {
+            userValue = prompt("Введите значение свойства : " + property);
+            myChair[property] = userValue;
+        }
+    }
+};
+function writeChairReceipt() {
+    document.write("<br><h2>Объект chair будет иметь следующую конфигурацию:</h2>");
+    for (let property in myChair) {
+        if (myChair.hasOwnProperty(property)) {
+            document.write(property + ": " + myChair[property] + "<br>");
+        }
+    }
+};
+configureChair();
+writeChairReceipt();
+
+console.log("->-----------------5-");
