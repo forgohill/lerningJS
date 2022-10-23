@@ -171,3 +171,44 @@ let willieNelson = new Person1();
 console.log(willieNelson.feet);
 alert("Willie Nelson has " + willieNelson.feet + " feet!");
 console.log("->-----------------9-");
+
+function PersonName() {
+    this.eyes =3;
+    this.ears =3;
+    this.arms =3;
+    this.hands =3;
+    this.feet =3;
+    this.legs =3;
+    this.species ="Homo Erectus";
+    
+};
+
+let emmiStone = new PersonName();
+let johnyCash = new PersonName();
+let  petsyCline = new PersonName();
+
+// объект PersonName нуждается в дополнительных
+// своствах!!!
+PersonName.prototype.knees =2;
+PersonName.prototype.toes =10;
+PersonName.prototype.elbows =2;
+
+// проверим наличие данного добавленого
+// свойства для johnyCash
+
+document.write ("<br>" + johnyCash.toes);
+console.log("->-----------------10-");
+
+
+// создание объектов при помощи 
+// Object.create
+let PersonCreate = {
+    eyes: 2,
+    arms: 12,
+    feet: 2
+};
+// создать объект jhonSmith на основе PersonCreate
+let jhonSmith = Object.create(PersonCreate);
+// проверка наличия унаследованных свойств
+document.write ("<br>" + jhonSmith.arms);
+console.log("->-----------------11-");
