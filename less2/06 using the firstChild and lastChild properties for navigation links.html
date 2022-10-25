@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM/JS in Internet/06 using the firstChild and lastChild properties for navigation links</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        .body-16 {
+                font-family: 'Montserrat', Helvetica, sans-serif, Arial;
+        font-style: normal;
+        font-weight: 400;
+        }
+    </style>
+    <script>
+        function boldFirstAndLastNav() {
+            document.body.childNodes[1].firstChild.style.fontWeight = "bold";
+            document.body.childNodes[1].lastChild.style.fontWeight = "bold";
+        }
+    </script>
+</head>
+
+<body class="body-16">
+    <nav><a href="nav/Home.html" style="text-decoration:none">Home</a> | <a href="nav/why.html"style="text-decoration:none">Why Are Iguanas No Fun?</a> | <a href="nav/what.html"style="text-decoration:none">What Can Be Done?</a> | <a href="nav/contact.html"style="text-decoration:none">Contast Us</a></nav>
+    <p>Iguanas are no fun to be around. Use the links above to learn more.</p>
+    <script>
+        boldFirstAndLastNav();
+    </script>
+    <!-- <script src="js/06.js"></script> -->
+</body>
+</html>
