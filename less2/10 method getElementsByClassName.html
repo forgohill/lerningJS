@@ -13,11 +13,23 @@
         font-weight: 400;
         }
     </style>
-
+    <script>
+        function checkMath(result) {
+            let userMath = document.getElementById("answerl").value;
+            let errors = document.getElementsByClassName("error");
+            if (parseInt(userMath) != parseInt(result)) {
+                errors[0].innerHTML = "Неверно! Вы ввели " + userMath + ". Правильный ответ: " + result;
+            } else {
+                errors[0].innerHTML = "Верно!";
+            }
+        };
+    </script>
 </head>
 
 <body class="body-16">
-
+    <label for="number1">4+1 =</label><input type="text" id="answerl" value="">
+    <button id="submit" onclick="checkMath(4+1);">Проверить!</button>
+    <h1 class="error"></h1>
     <!-- <script src="js/10.js"></script> -->
 </body>
 </html>
