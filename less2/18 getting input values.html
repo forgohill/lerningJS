@@ -18,15 +18,47 @@
     </style>
     <script>
         function registerEvents() {
-            document
-        }
+            document.mathWiz.operate.addEventListener('click',doTheMath,false);
+        };
+        function doTheMath() {
+            let first = parseInt(document.mathWiz.numberOne.value);
+            let second = parseInt(document.mathWiz.numberTwo.value);
+            let operator = document.mathWiz.operator.value;
+
+
+            switch (operator) {
+                case "add":
+                    var answer = first + second;
+                    break;
+                case "subtract":
+                    var answer = first - second;
+                    break;
+                case "multiply":
+                    var answer = first * second;
+                    break;
+                case "divide":
+                    var answer = first / second;
+                    break;
+            }
+            document.mathWiz.theResult.value = answer;
+        };
     </script>
 </head>
 <body class="body-16" onload="registerEvents();">
     <form name="mathWiz">
         <label>Первое число: <input type="number" name="numberOne"></label><br>
-        <label>Второе число: <input type="number" name="numberOne"></label><br>
-        <label>Оператор: <input type="number" name=""></label><br>
+        <label>Второе число: <input type="number" name="numberTwo"></label><br>
+        <label>Оператор:
+            <select name="operator">
+                <option value="add"> + </option>
+                <option value="subtract"> - </option>
+                <option value="multiply"> * </option>
+                <option value="divide"> / </option>
+            </select>
+        </label>
+        <br>
+        <input type="button" name="operate" value="Вычислить!"><br>
+        <label>Результат: <input type="number" name="theResult" oninput=""></label>
     </form>
 
     <!-- <script src="js/17.js"></script> -->
