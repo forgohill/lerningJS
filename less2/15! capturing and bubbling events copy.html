@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM/JS in Internet/15 capturing and bubbling events</title>
+        <!-- ПРОГРАММА -->
+
+        <!-- ЭТА УХЙНЯ НЕ РАБОТАЕТ КАК НАДО -->
+
+        <!-- ПРИЛОЖЕНИЕ КОТОРАЯ ПОКАЗЫВАЕТ 2 СПОСОБА -->
+        <!-- ОБРАБОТКИ СОБТИЯ -->
+        <!-- ЗАХВАТ СОБЫТИЯ И ВСПЫЛТИЕ СОБЫТИЯ -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        .body-16 {
+        font-family: 'Montserrat', Helvetica, sans-serif, Arial;
+        font-style: normal;
+        font-weight: 400;
+        }
+        #theText{font-size:  18px;}
+        h1 {
+            border: 1px solid#000;
+            background-color: #dadada;
+        }
+        #capEvent,#bubEvent {
+            background-color: #777;
+        }
+    </style>
+    <script>
+        // дождаться окончания загрузки окна и лишь потом
+        // зарегистрировать событие
+        window.addEventListener('load',registerEvents,false);
+        
+        // **
+        // * регистрирует событие
+        // **
+        function registerEvents(e) {
+            document.getElementById("capTitle"),addEventListener('click',makeTiny,true);
+            document.getElementById("capEvent"),addEventListener('click',makeHuge,true);
+            document.getElementById("bubTitle"),addEventListener('click',makeTiny,false);
+            document.getElementById("bubEvent"),addEventListener('click',makeHuge,false);
+        }
+        function makeHuge(e) {
+            console.log("increasing text size");
+            document.getElementById('theText').style.fontSize = "80px";
+        }
+        function makeTiny(e) {
+            console.log("reduce text size");
+            document.getElementById('theText').style.fontSize = "10px";
+        }
+    </script>
+</head>
+<body class="body-16">
+    <h1 id="capTitle"><span id="capEvent">Capturing</span> events</h1>
+    <h1 id="bubTitle"><span id="bubEvent">Bubbling</span> events</h1>
+    <p id="theText">Hello events!</p>
+
+    <!-- <script src="js/15.js"></script> -->
+</body>
+</html>
