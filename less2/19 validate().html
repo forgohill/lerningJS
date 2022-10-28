@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM/JS in Internet/19 validate()</title>
+        <!-- ПРОГРАММА -->
+        <!-- В ЭТОМ ПРИМЕРЕ МЫ ИСПРАВИМ КОД ТАК -->
+        <!-- ЧТО БЫ ПРОИХОДИЛА ВАЛИДАЦИЯ ПЕРЕД ОТПРАВКОЙ ДАННЫХ -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        .body-16 {
+        font-family: 'Montserrat', Helvetica, sans-serif, Arial;
+        font-style: normal;
+        font-weight: 400;
+        }
+    </style>
+    <script>
+        function registerEvents() {
+            document.mathWiz.operate.addEventListener('click',validate,false);
+        };
+        function validate() {
+            let first = parseInt(document.mathWiz.numberOne.value);
+            let second = parseInt(document.mathWiz.numberTwo.value);
+            let operator = document.mathWiz.operator.value;
+            if (/^d+$/.test(first) && /^d+$/.test(second)) {
+                doTheMath
+            } else {
+                alert("Ошибка! оба операнда должны быть числами!!")
+            }
+        }
+        function doTheMath() {
+            let first = parseInt(document.mathWiz.numberOne.value);
+            let second = parseInt(document.mathWiz.numberTwo.value);
+            let operator = document.mathWiz.operator.value;
+
+
+            switch (operator) {
+                case "add":
+                    var answer = first + second;
+                    break;
+                case "subtract":
+                    var answer = first - second;
+                    break;
+                case "multiply":
+                    var answer = first * second;
+                    break;
+                case "divide":
+                    var answer = first / second;
+                    break;
+            }
+            document.mathWiz.theResult.value = answer;
+        };
+    </script>
+</head>
+<body class="body-16" onload="registerEvents();">
+    <form name="mathWiz">
+        <label>Первое число: <input type="number" name="numberOne"></label><br>
+        <label>Второе число: <input type="number" name="numberTwo"></label><br>
+        <label>Оператор:
+            <select name="operator">
+                <option value="add"> + </option>
+                <option value="subtract"> - </option>
+                <option value="multiply"> * </option>
+                <option value="divide"> / </option>
+            </select>
+        </label>
+        <br>
+        <input type="button" name="operate" value="Вычислить!"><br>
+        <label>Результат: <input type="number" name="theResult" oninput=""></label>
+    </form>
+
+    <!-- <script src="js/17.js"></script> -->
+</body>
+</html>
