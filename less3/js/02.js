@@ -1,72 +1,53 @@
-// DOM навигация по документу
+// поиск селектору класса
 
-// самые верхние доступны 
-// как свойства можно вывести через консоль
-
-const htmlElement = document.documentElement;
-const headElement = document.head;
-const bodyElement = document.body;
-console.log(htmlElement);
-console.log(headElement);
-console.log(bodyElement);
-
+const elemsOne = document.querySelectorAll('.lesson__list')
+console.log(elemsOne);
 console.log("_______________________1_");
 
-// firstChildNode и lastChilDNode
-// доступ к первому и элементу (дочернему)
-const firstChildNode = bodyElement.firstChild;
-const lastChildNode = bodyElement.lastChild;
-console.log(firstChildNode);
-console.log(lastChildNode);
+// поиск по селектору тега
 
+const elemsTwo = document.querySelectorAll('li');
+console.log(elemsTwo);
 console.log("_______________________2_");
 
-// колекция childNodes
-const childNodes = bodyElement.childNodes;
-console.log(childNodes);
+// поиск по смешанному селектору тега и класса
 
-// существует так же фунцкция
-// hasChildNodes ()
-// она сообщит существуют ли дочерные элементы
-// если да - true иначе false
-
-console.log(bodyElement.hasChildNodes());
+const elemsThree = document.querySelectorAll('li.lesson__item-list');
+console.log(elemsThree);
 console.log("_______________________3_");
 
-// пример перебора колекции
-for (const node of childNodes) {
-    console.log(node); // покажет все узлы колекции
-};
+// поиск по тегу первого уровня вложенности
+
+const elemsFour = document.querySelectorAll('.lesson__list>li');
+console.log(elemsFour);
 console.log("_______________________4_");
-// обращаемся к предидущему 
-// к следующеиму 
-// и непосредственно к родителю
 
-const previosSiblingNode = bodyElement.previousSibling;
-const nextSiblingNode = bodyElement.nextSibling;
-const parentNode = bodyElement.parentNode;
+// поиск по нескольким классам
 
-console.log(previosSiblingNode);
-console.log(nextSiblingNode);
-console.log(parentNode);
+const elemsFive = document.querySelectorAll('.lesson__list, .lesson__text');
+console.log(elemsFive);
 console.log("_______________________5_");
 
+// поиск по вложенным классам
 
-const bodyChildren = bodyElement.children;
-console.log(bodyChildren);
+const elemsSix = document.querySelectorAll('.lesson__list .lesson__text');
+console.log(elemsSix);
 console.log("_______________________6_");
 
-const firstChild = bodyElement.firstElementChild;
-const lastChild = bodyElement.lastElementChild;
-console.log(firstChild);
-console.log(lastChild);
+// поиск по ID
+
+const elemsSeven = document.querySelectorAll('#listItem');
+console.log(elemsSeven);
 console.log("_______________________7_");
 
-const previosSibling = bodyElement.previousElementSibling;
-const nextSibling = bodyElement.nextElementSibling;
-const parent = bodyElement.parentElement;
+// поиск по атрибуту
 
-console.log(previosSibling);
-console.log(nextSibling);
-console.log(parent);
+const elemsEight = document.querySelectorAll('[data-item]');
+console.log(elemsEight);
+console.log("_______________________8_");
+
+// поиск по конкретному атрибуту
+
+const elemsNine = document.querySelectorAll('[data-item="85"]');
+console.log(elemsNine);
 console.log("_______________________8_");
