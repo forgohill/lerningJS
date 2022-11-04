@@ -33,7 +33,7 @@ listElement.remove();
 
 
 // // получаем объект
-const element = document.querySelector ('.lesson__item-list_red');
+// const element = document.querySelector ('.lesson__item-list_red');
 
 // // получаем Имена Класса
 // const elementClassName = element.className;
@@ -61,10 +61,28 @@ const element = document.querySelector ('.lesson__item-list_red');
 //     console.log(className);
 // }
 
-element.style.color = "red";
+// element.style.color = "red";
 
-element.style.marginBottom = "30px";
+// element.style.marginBottom = "30px";
 
-element.style.zIndex = "10";
+// element.style.zIndex = "10";
 
-console.log(element.style.marginBottom);
+// console.log(element.style.marginBottom);
+
+// const element = document.querySelector ('.lesson__item-list_red');
+
+// element.style.cssText = `
+//     margin-bottom: 30px;
+//     color: red;
+//     `;
+
+// console.log(element.style.fontSize);
+
+// // стиль элемента
+// const elementStyle = getComputedStyle(element);
+// console.log(parseInt(elementStyle.fontSize));
+// console.log(elementStyle.paddingLeft);
+// console.log(elementStyle.padding);
+
+// const elementBeforeStyle =  getComputedStyle(element,"::before");
+// console.log(elementBeforeStyle.backgroundColor);
