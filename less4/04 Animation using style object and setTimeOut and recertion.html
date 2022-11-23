@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Working with graphics/beginner/04 Animation using style object and setTimeOut and recertion</title>
+  <!-- ПРОГРАММА -->
+  <!-- АНИМАЦИЯ С ПОМОЩЬЮ ОБЪЕКТА STYLE -->
+  <!-- А ТАК ЖЕ ИСПОЛЬЗОВАНИЯ МЕТОДА setTimeOut -->
+  <!-- А ТАК ЖЕ ИСПОЛЬЗОВАНИЯ РЕКУРСИИ -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    .body-16 {
+        font-family: 'Montserrat', Helvetica, sans-serif, Arial;
+    font-style: normal;
+    font-weight: 400;
+    }
+    #square {
+      width: 100px;
+      height: 100px;
+      background-color: #333;
+      position: absolute;
+      left: 5px;
+      top: 100px;
+    }
+  </style>
+  <script>
+// даждаться, когда загрузится окно
+    window.addEventListener('load',initialize,false);
+    function initialize() {
+    // переместить квадрат после щелчка на нем
+      console.log("клик!");
+      document.getElementById("square").addEventListener('click',function(e) {
+    // получить начальную позицию
+        var left = window.getComputedStyle(e.target).getPropertyValue("left");
+    // преобразовать left в десятичное целое число
+        left = parseInt(left,10);
+        moveSquare (left,100);
+      },false)
+    }
+    function moveSquare(left,numMoves) {
+      document.getElementById("square").style.left = left + "px";
+      if (numMoves > 0) {
+      numMoves--;
+      left++;
+      setTimeout(moveSquare,10,left,numMoves);
+      } else {
+        return;
+      }
+    }
+
+
+  </script>
+</head>
+
+<body class="body-16">
+<div id="square"></div>
+  <!-- <script src="js/01.js"></script> -->
+</body>
+</html>
