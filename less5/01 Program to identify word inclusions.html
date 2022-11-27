@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01 Program to identify word inclusions</title>
+  <!-- ПРОГРАММА -->
+  <!-- Определим, включает ли строка слово «JavaScript» -->
+  <style class="fonts">
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+    .page {
+      /* font-family: 'Montserrat', Helvetica, sans-serif, Arial; */
+      font-style: normal;
+      font-weight: 400;
+    }
+  </style>
+  <style>
+  </style>
+  <script>
+    window.addEventListener("load", registerEvents, false);
+
+    function registerEvents(e) {
+      document.getElementById("ask").addEventListener("click", findAnswer, false);
+    };
+    function findAnswer() {
+      //получить пользовательский запрос
+      var question = document.getElementById("userQuestion").value;
+
+      /* создать новый объект регулярного выражения, которое ищет полное совпадение со строкой "JavaScript" */
+      var re = new RegExp("JavaScript");
+
+      // если в запросе найдена строка "JavaScript"
+      if (re.test(question) === true) {
+        //вывести ответ
+        document.getElementById("answer").innerHTML = "Вопросы по JavaScript? Обратитесь на сайт Coding width JavaScript For Dummies Криса Миника и Евы Холланд";
+        //записать в консоль «JavaScript!»
+        console.log("JavScript!");
+      }
+    }
+
+  </script>
+</head>
+
+<body class="page">
+  <form id="userInput">
+    <label for="">
+      <textarea name="" id="userQuestion" cols="30" rows="10"></textarea><br>
+      <button id="ask" type="button">Получить ответ</button>
+    </label>
+  </form>
+  <div id="answer" />
+</body>
+
+</html>
