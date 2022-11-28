@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02 Reating a regular expression at application runtime using the RegExp expression</title>
+  <!-- ПРОГРАММА -->
+  <!-- ИГРА В ПОДСЧЕТ БУКВ -->
+  <!-- ВНИМАНИЕ!! ТЕКСТ ДОЛЖЕН БЫТЬ ENGLISH -->
+  <style class="fonts">
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+    .page {
+      font-family: 'Montserrat', Helvetica, sans-serif, Arial;
+      font-style: normal;
+      font-weight: 400;
+    }
+  </style>
+  <style>
+  </style>
+  <script>
+    window.addEventListener('load', loader, false);
+
+    // получить случайную букву
+    var letter = String.fromCharCode(97 + Math.floor(Math.random() * 26));
+
+    /* Создать регулярное выражение, используя букву. Установить опцию g для нахождения всех вхождений.*/
+    var re = new RegExp(letter, 'g');
+
+    function loader(e) {
+      document.getElementById("getText").addEventListener('submit', countLetter, false);
+    };
+
+    function countLetter(e) {
+      e.preventDefault();
+      document.getElementById("results").innerHTML = "Была выбрана секретная буква " + letter + ".";
+      var userText = document.getElementById("userWords").value;
+      var matches = userText.match(re);
+      if (matches) {
+        var count = matches.length;
+        console.log(matches.length);
+      } else {
+        var count = 0;
+      }
+      document.getElementById("results").innerHTML += " Вы ввели секретную букву " + count + " раз.";
+    };
+  </script>
+</head>
+
+<body class="page">
+  <form action="" id="getText">
+    <p>Я задумал букву! Введите предложение <br>и я скажу вам, я скажу вам,<br>сколько раз моя секретная буква<br>
+      встречается в
+      вашем предложении!</p>
+    <input type="text" name="userWords" id="userWords">
+    <input type="submit" name="submit">
+  </form>
+  <div id="results"></div>
+</body>
+
+</html>
