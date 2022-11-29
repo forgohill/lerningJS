@@ -39,9 +39,11 @@
       document.getElementById("results").innerHTML = "Была выбрана секретная буква " + letter + ".";
       var userText = document.getElementById("userWords").value;
       var matches = userText.match(re);
+      console.log(matches);
       if (matches) {
         var count = matches.length;
         console.log(matches.length);
+
       } else {
         var count = 0;
       }
