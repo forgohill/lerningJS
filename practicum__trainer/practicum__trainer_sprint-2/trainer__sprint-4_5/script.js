@@ -1,43 +1,53 @@
-let container = document.querySelector('.container')
+const container = document.querySelector('.container');
+const songsContainer = container.querySelector('.songs-container');
+const addButton = container.querySelector('.input__btn_action_add');
+const resetButton = container.querySelector('.input__btn_action_reset');
+const noSongsElement = container.querySelector('.no-songs');
 
-let songsContainer = container.querySelector('.songs-container');
+function renderHasSongs() {
+  resetButton.removeAttribute('disabled');
+  resetButton.classList.remove('input__btn_disabled');
+  noSongsElement.classList.add('no-songs_hidden');
+}
 
-let addButton = document.querySelector('.form__submit-btn_action_add');
-let resetButton = document.querySelector('.form__submit-btn_action_reset');
+function renderNoSongs() {
+  resetButton.setAttribute('disabled', true);
+  resetButton.classList.add('input__btn_disabled');
+  noSongsElement.classList.remove('no-songs_hidden');
+}
 
-function renderAdded() {
-  let songs = songsContainer.querySelectorAll('.song');
-  let noSongsElement = container.querySelector('.no-songs');
-  if (songs.length === 0) {
-    resetButton.setAttribute('disabled', true);
-    resetButton.classList.add('form__submit-btn_disabled');
-    noSongsElement.classList.remove('no-songs_hidden');
-  } else {
-    resetButton.removeAttribute('disabled', true);
-    resetButton.classList.remove('form__submit-btn_disabled');
-    noSongsElement.classList.add('no-songs_hidden');
-  };
+function addSong(artistValue, titleValue) {
+  const songTemplate = document.querySelector('#song-template').content;
+  const songElement = songTemplate.querySelector('.song').cloneNode(true);
+
+  songElement.querySelector('.song__artist').textContent = artistValue;
+  songElement.querySelector('.song__title').textContent = titleValue;
+
+  songElement.querySelector('.song__like').addEventListener('click', function (evt) {
+    evt.target.classList.toggle('song__like_active');
+  });
+
+  songsContainer.append(songElement);
+
 };
 
-function addSong() {
-  let artist = document.querySelector('.input__text_type_artist');
-  let song = document.querySelector('.input__text_type_song');
-  songsContainer.insertAdjacentHTML(
-    'beforeend',
-    `
-        <div class="song">
-          <h4 class="song__artist">${artist.value}</h4>
-          <p class="song__title">${song.value}</p>
-          <button class="song__like"></button>
-        </div>
-  `);
-  artist.value = "";
-  song.value = "";
-  renderAdded();
-};
+addButton.addEventListener('click', function () {
+  const artist = document.querySelector('.input__text_type_artist');
+  const title = document.querySelector('.input__text_type_title');
 
-addButton.addEventListener('click', addSong);
+  addSong(artist.value, title.value);
+  renderHasSongs();
 
-renderAdded()
+  artist.value = '';
+  title.value = '';
+});
 
-console.log(typeof document.querySelector('.input__text_type_artist').value);
+resetButton.addEventListener('click', function () {
+  const songs = document.querySelectorAll('.song')
+
+  for (let i = 0; i < songs.length; i++) {
+    songs[i].remove();
+  }
+
+  renderNoSongs();
+});
