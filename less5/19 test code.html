@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript</title>
+</head>
+
+<body>
+  <script>
+
+    // const characters = ['Гав-гав', 'Незнайка', 'Бармaлей', 'Леопольд', 'Хоттабыч'];
+    // const incorrectWord = characters.find(function (item) {
+    //   return item.includes('a');
+    // });
+    // console.log(incorrectWord);
+
+    // дан массив чисел
+    const integersToCheck = [2, 3, 193, 79, 7, 29];
+
+    /* нужно дополнить функцию isPrime, принимающую число на вход
+    и возвращающую true, если число простое, а иначе false */
+
+
+    // ФУНКЦИЯ ПРОВЕРКИ НАТУРАЛЬНОГО ЧИСЛА
+    function isPrime(num) {
+      for (let i = 2; i < num; i++) {
+        if (num % i === 0) {
+          return false;
+        }
+      } return true;
+    };
+    const mario = integersToCheck.every(isPrime);
+    console.log(mario);
+
+  </script>
+</body>
+
+</html>

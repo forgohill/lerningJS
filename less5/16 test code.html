@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript</title>
+</head>
+
+<body>
+  <script>
+    const a = [
+      'Гарри Поттер и философский камень',
+      'Гарри Поттер и Тайная комната',
+      'Гарри Поттер и узник Азкабана',
+      'Гарри Поттер и Кубок огня',
+      'Гарри Поттер и Орден феникса',
+      'Гарри Поттер и Принц-полукровка',
+      'Гарри Поттер и Дары смерти',
+      'Гарри Поттер и методы рационального мышления',
+    ];
+
+    const b = [];
+    a.forEach(function (item) {
+      b.push(item.split(' и ')[1]);
+      console.log(b);
+    });
+
+
+
+    // const arr = [
+    //   'Гравитационные силы',
+    //   'Электромагнитные силы',
+    //   'Ядерные силы',
+    //   'Слабые силы'
+    // ];
+
+    // arr.forEach(function (element, index) {
+    //   console.log(`${index + 1}. ${element}`);
+    // });
+
+
+    // const characters = [
+    //   'Люк Скайуокер',
+    //   'Оби Ван',
+    //   'Чубакка',
+    //   'Энакин Скайуокер',
+    //   'Хан Соло',
+    //   'Палпатин'
+    // ];
+
+    // const newCharacters = characters.map(function (character) {
+    //   if (character === 'Люк Скайуокер') {
+    //     return 'Дарт Вейдер';
+    //   };
+    //   return character;
+    // });
+
+    // console.log(newCharacters);
+
+
+  </script>
+</body>
+
+</html>
