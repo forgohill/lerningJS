@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Урок 3: тренажер: Перебор свойств - object</title>
+</head>
+
+<body>
+  <script>
+    const heights = {
+      burjKhalifa: 828,
+      tokyoSkyTree: 634,
+      shanghaiTower: 632,
+      abrajAlBait: 601,
+      cantonTower: 600,
+      pingAnFinanceCentre: 600,
+      lotteWorldTower: 555,
+      cnTower: 553,
+      oneWorldTradeCenter: 541,
+      ostankinoTower: 540
+    };
+
+    const stratoHeight = 11000;
+    // console.log(Object.values(heights));
+    const sumHeights = Object.values(heights).reduce((prev, item) => {
+      return prev + item;
+    }, 0);
+
+    console.log(sumHeights >= stratoHeight);
+
+    // ----------------------------------------
+    const mya = {
+      'бремя': 'burden',
+      'время': 'time',
+      'вымя': 'udder',
+      'мяч': 'ball',
+      'знамя': 'banner',
+      'имя': 'name',
+      'мясо': 'meat',
+    };
+
+    // console.log(mya);
+
+    Object.keys(mya).forEach(function (key) {
+      Object.keys(mya).forEach(function (key) {
+        if (!key.endsWith('мя')) {
+          // console.log(key);
+          delete mya[key];
+        }
+      });
+    });
+
+    console.log(mya);
+    // -------------------------------------
+    function swap(obj) {
+      const res = {};
+      Object.keys(obj).forEach(function (key) {
+        res[obj[key]] = key;
+      });
+      // добавьте в res ключи и значения obj, поменяв их местами
+
+      return res;
+    }
+
+    const myObj = {
+      first: 1,
+      second: 2,
+      third: 3
+    };
+
+    console.log(myObj); // { first: 1, second: 2, third: 3 }
+    console.log(swap(myObj)); // { 1: "first", 2: "second", 3: "third" }
+
+
+
+
+    /*
+    
+      {
+        бремя: "burden",
+        время: "time",
+        вымя: "udder",
+        знамя: "banner",
+        имя: "name"
+      }
+    
+    */
+
+
+  </script>
+
+
+
+</body>
+
+</html>

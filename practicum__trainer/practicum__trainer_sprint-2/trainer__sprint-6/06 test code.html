@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Урок 3: тренажер: Передача по ссылке - object</title>
+</head>
+
+<body>
+  <script>
+    function copy(obj) {
+      let res = {};
+      Object.keys(obj).forEach(function (key) {
+        res[key] = obj[key];
+      })
+
+      console.log(res);
+      return res;
+    }
+
+    const firstObj = {
+      one: 1,
+      two: 2,
+      three: 3
+    };
+
+    const secondObj = firstObj;
+    const thirdObj = copy(firstObj);
+
+    console.log(firstObj);
+    console.log('// { one: 1, three: 3, two: 2 }');
+    console.log(secondObj);
+    console.log('// { one: 1, three: 3, two: 2 }');
+    console.log(thirdObj);
+    console.log('// { one: 1, three: 3, two: 2 }');
+
+    firstObj.four = 4;
+
+    console.log(firstObj);
+    console.log('// { four: 4, one: 1, three: 3, two: 2 }');
+    console.log(secondObj);
+    console.log('// { four: 4, one: 1, three: 3, two: 2 }');
+
+    // thirdObj не изменился
+    console.log(thirdObj);
+    console.log('// { one: 1, three: 3, two: 2 }');
+  </script>
+
+
+
+</body>
+
+</html>

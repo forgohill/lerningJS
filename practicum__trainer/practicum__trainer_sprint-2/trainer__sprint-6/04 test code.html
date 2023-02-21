@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Урок 3: Перебор свойств - object</title>
+</head>
+
+<body>
+  <script>
+    const emojis = {
+      smile: '😃',
+      kiss: '😚',
+      smirk: '😏',
+      disappointment: '😞',
+      astonishment: '😲',
+      dizziness: '😵'
+    };
+
+    for (let emotion in emojis) {
+      console.log(`${emotion} - ${emojis[emotion]}`);
+    }
+
+    /* в консоли появится:
+      smile — 😃
+      kiss — 😚
+      smirk — 😏
+      disappointment — 😞
+      astonishment — 😲
+      dizziness — 😵
+    */
+
+
+    /* Представим, что делегат писательского съезда
+    записывал сначала самые крупные расходы: */
+
+    const expenses1 = {
+      'сотку': 'на *одку',
+      'десятку': 'на куропатку',
+      'пятёрку': 'на тетёрку',
+      'трёшку': 'на картошку',
+      'руп': 'на суп'
+    };
+
+    Object.keys(expenses1).forEach(function (a) {
+      console.log(a);
+    });
+
+    /* в консоли ключи выводятся так:
+    
+        сотку
+        десятку
+        пятёрку
+        трёшку
+        руп
+    
+    */
+    // Делегат записал суммы расходов числами:
+
+    const expenses = {
+      '100': 'на *одку',
+      '10': 'на куропатку',
+      '5': 'на тетёрку',
+      '3': 'на картошку',
+      '1': 'на суп'
+    };
+
+    Object.keys(expenses).forEach(function (a) {
+      // для наглядности выведем вместе с ключами их значения 
+      console.log(`${a} — ${expenses[a]}`);
+    });
+
+    /* движок упорядочил ключи в порядке возрастания,
+    и вывод получился практически как у Олейникова
+    
+        1 — на суп
+        3 — на картошку
+        5 — на тетёрку
+        10 — на куропатку
+        100 — на *одку
+        */
+
+    const paulMcCartney = {
+      yesterday: 'all my troubles seemed so far away'
+    };
+    console.log(Object.values(expenses));
+    console.log(Object.entries(expenses));
+
+    console.log(Object.values(paulMcCartney)); // ["all my troubles seemed so far away"]
+    console.log(Object.entries(paulMcCartney)); // [["yesterday", "all my troubles seemed so far away"]]
+  </script>
+
+
+
+</body>
+
+</html>
