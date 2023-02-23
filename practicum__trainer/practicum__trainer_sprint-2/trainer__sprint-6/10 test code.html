@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Урок 3: тренажер: Массивы это объекты
+    - object</title>
+</head>
+
+<body>
+  <script>
+    function double(value) {
+
+      if (Array.isArray(value)) {
+        const result = value.map((item) => {
+          return item + item;
+        });
+        return result;
+      } else {
+        return value + value;
+      }
+
+    }
+
+
+    double(2);
+    double([1, 2, 3]);
+
+
+    console.log(double(2));
+    console.log('// 4');
+
+    console.log(double([1, 2, 3]));
+    console.log('// [2, 4, 6]');
+  </script>
+
+
+
+</body>
+
+</html>
