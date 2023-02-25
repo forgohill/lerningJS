@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Урок 3: События клавиатуры
+  </title>
+</head>
+
+<body>
+
+  <input class="text-field" placeholder="Введите текст">
+
+  <script>
+
+    /* script.js */
+
+    const input = document.querySelector('.text-field');
+
+    input.addEventListener('keydown', function () {
+      console.log('Я возникаю, когда печатают в текстовом поле.');
+    });
+
+
+    // сработает один раз, когда нажали клавишу
+    document.addEventListener('keypress', function () {
+      console.log('Нажали клавишу');
+    });
+
+    // будет срабатывать много раз, когда клавиша нажата
+    document.addEventListener('keydown', function () {
+      console.log('Клавиша нажата');
+    });
+
+    // сработает один раз, когда отпустили клавишу
+    document.addEventListener('keyup', function () {
+      console.log('Отпустили клавишу');
+    });
+
+
+  </script>
+
+
+
+</body>
+
+</html>

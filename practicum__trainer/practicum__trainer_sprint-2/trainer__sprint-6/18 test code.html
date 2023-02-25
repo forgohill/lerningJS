@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Урок 3: removeEventListener
+  </title>
+
+  <style>
+    .potion {
+      width: 50px;
+      height: 50px;
+
+      background-color: aqua;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<div class="potion"></div>
+
+<body>
+  <script>
+    const potion = document.querySelector('.potion')
+
+    // character — это персонаж. В его свойстве health
+    // хранится количество очков здоровья
+
+    const character = {
+      health: 200
+    };
+
+    // объявляем функцию increaseHealth,
+    // англ. increase health — увеличить здоровье
+    function increaseHealth(evt) {
+      console.log(character.health);
+      character.health = character.health + 50; // увеличиваем очки здоровья
+      console.log(character.health);
+      // potion.style.display = 'none';
+      // как только зелье выпито,
+      // обработчик удаляется с зелья
+      evt.target.removeEventListener('click', increaseHealth);
+    }
+
+    // добавляем слушатель элементу зелья
+    // англ. potion — зелье
+    potion.addEventListener('click', increaseHealth);
+  </script>
+</body>
+
+</html>
