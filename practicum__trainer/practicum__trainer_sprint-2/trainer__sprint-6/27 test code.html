@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Урок 3: тренажер ПОЛУЧЕНИЕ ЭЛЕМЕНТОВ ФОРМ
+  </title>
+
+  <style>
+  </style>
+</head>
+
+<body>
+  <form action="" name="myForm">
+    <input type="checkbox" name="myCheckBox">
+    <input type="text">
+
+    <button type="submit">пиёт</button>
+
+  </form>
+  <script>
+    const checkbox = document.querySelector('input[type=checkbox]');
+
+    function callback(evt) {
+      // в свойстве evt.type хранится тип события
+      console.log(`Произошло событие ${evt.type}`);
+    }
+
+    checkbox.addEventListener('input', callback);
+    // Произошло событие input
+
+    checkbox.addEventListener('change', callback);
+    // Произошло событие change
+
+
+    const textInput = document.querySelector('input[type=text]');
+
+    function callback(evt) {
+      console.log(`Произошло событие ${evt.type}`);
+    }
+
+    textInput.addEventListener('input', callback);
+    textInput.addEventListener('change', callback);
+
+    /* Если теперь ввести в текстовое поле
+      слово «Яндекс» и щёлкнуть вне этого поля,
+      в консоли будут показаны сообщения:
+    
+      6 раз: Произошло событие input
+      1 раз: Произошло событие change
+    */
+  </script>
+</body>
+
+</html>

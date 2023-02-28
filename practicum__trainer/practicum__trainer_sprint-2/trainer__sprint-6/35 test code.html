@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>СПРИНТ 6 - БРАУЗЕРНАЯ ВАЛИДАЦИЯ связка с DOM </title>
+  <style>
+    * {
+      font-family: sans-serif;
+    }
+
+    .form__input {
+      outline: 0;
+    }
+
+    .form__input_type_error {
+      border-bottom-color: red;
+
+      /* Нижняя рамка становится красной всякий раз, 
+  когда введённые данные некорректны */
+    }
+
+    .form__input-error {
+      display: none;
+    }
+
+    .form__input_type_error_active {
+      color: red;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Валидация нескольких полей и форм
+  </h1>
+  <h2>Несколько форм
+    <code>35</code>
+  </h2>
+  <form class="form" novalidate>
+    <label class="form__field">
+      Введите адрес электронной почты
+      <input id="email-input" class="form__input" type="email" placeholder="Email" required>
+      <span class="email-input-error form__input-error"></span>
+    </label>
+    <label class="form__field">
+      Введите пароль
+      <input id="password-input" class="form__input" type="password" placeholder="Password" required minlength="6">
+      <span class="password-input-error form__input-error"></span>
+    </label>
+    <button class="form__submit">Войти</button>
+  </form>
+
+  <script>
+    const formElement = document.querySelector('.form');
+
+    //функция которая добавляет класс с ошибкой
+    const showInputError = (formElement, inputElement, errorMessage) => {
+
+      // Находим элемент ошибки
+      const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+
+      inputElement.classList.add('form__input_type_error');
+
+      //заменим содержимое span на переданный параметр
+      errorElement.textContent = errorMessage;
+      errorElement.classList.add('form__input_type_error_active');
+    };
+
+    //функция которая удаляет класс с ошибкой
+    const hideInputError = (formElement, inputElement) => {
+
+      // Находим элемент ошибки
+      const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+
+      inputElement.classList.remove('form__input_type_error');
+
+      //убрать сообщение об ошибке
+      errorElement.classList.remove('form__input_type_error');
+      errorElement.textContent = '';
+    };
+
+    //функция проверки валидности
+    // Функция isValid теперь принимает formElement и inputElement,
+    // а не берёт их из внешней области видимости
+    /**
+     * 1.
+     * formElement — html-элемент формы, в которой находится
+     * проверяемое поле ввода. Он нужен для поиска элемента
+     * ошибки в форме.
+     * 2.
+     * inputElement — проверяемое поле ввода.
+     */
+
+    const isValid = (formElement, inputElement) => {
+      if (!inputElement.validity.valid) {
+        console.log(inputElement);
+
+        //если поле не проходит влаидацю: ошибка
+        // showInputError теперь получает параметром форму, в которой
+        // находится проверяемое поле, и само это поле
+        showInputError(formElement, inputElement, inputElement.validationMessage);
+      } else {
+        //если поле проходит валидацию - охуенчик
+        // hideInputError теперь получает параметром форму, в которой
+        // находится проверяемое поле, и само это поле
+        hideInputError(formElement, inputElement);
+      }
+    };
+
+    //слушатель на 'input' поля ввода    
+    formElement.addEventListener('input', (evt) => {
+      const inputElement = evt.target;
+      isValid(formElement, inputElement);
+    });
+  </script>
+</body>
+
+</html>

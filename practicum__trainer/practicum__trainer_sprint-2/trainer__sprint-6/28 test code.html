@@ -183,7 +183,7 @@
         <div class="input">
           <input type="text" name="title" placeholder="Название" class="input__text input__text_type_title">
           <input type="text" name="artist" placeholder="Исполнитель" class="input__text input__text_type_artist">
-          <button class="input__btn input__btn_action_add">
+          <button class="input__btn input__btn_action_add input__btn_disabled" disabled>
             Добавить
           </button>
         </div>
@@ -226,10 +226,25 @@
       evt.preventDefault();
 
       addSong(artist.value, title.value);
-      artist.value = '';
-      title.value = '';
+      form.reset();
+      setSubmitButtonState(false);
     });
 
+    function setSubmitButtonState(isFormValid) {
+      if (isFormValid) {
+        addButton.removeAttribute('disabled');
+        addButton.classList.remove('input__btn_disabled');
+      } else {
+        addButton.setAttribute('disabled', true);
+        addButton.classList.add('input__btn_disabled');
+      }
+    };
+
+    form.addEventListener('input', function (evt) {
+      const isValid = artist.value.length > 0 && title.value.length > 0;
+      console.log(isValid);
+      setSubmitButtonState(isValid);
+    });
   </script>
 </body>
 
