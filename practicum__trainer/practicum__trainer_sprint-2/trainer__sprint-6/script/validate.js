@@ -9,8 +9,10 @@ const formValidationConfig = {
 }
 
 // функция отключение event по умолчнию
-function diableSubmit (evt) {
+function disableSubmit (evt) {
+  
   evt.preventDefault();
+  console.log(evt);
   }
 
 // функция применение валидлации
@@ -20,7 +22,7 @@ function enableValidation (config) {
 
   // слушатель кнопки сабмит
   // отключение event по умолчнию
-  form.addEventListener('submit', diableSubmit);
+  form.addEventListener('submit', disableSubmit);
 
   // запускаем акнивность кнопки в слуаштеле инпута
   form.addEventListener('input', () => {
