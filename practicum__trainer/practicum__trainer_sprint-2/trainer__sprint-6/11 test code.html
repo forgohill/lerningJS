@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Урок 3: НЕтренажер-теория: Функции это объекты
+    - object</title>
+</head>
+
+<body>
+  <script>function multiply(a, b) {
+      return a * b;
+    }
+
+    /* Функция — это объект. Добавим в неё свойство someValue,
+    присвоив ему значение 4 */
+
+    multiply.someValue = 4;
+
+    /* Если теперь обратиться к свойству функции с ключом someValue, 
+    вернётся 4 */
+
+    console.log(multiply.someValue); // 4
+
+    // А при показе кода функции multiply в консоли выводится только код
+
+    console.log(multiply);
+
+    /* ƒ multiply(a, b) {
+        return a * b;
+    } */
+  </script>
+
+
+
+</body>
+
+</html>

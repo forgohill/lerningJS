@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Урок 3: тренажер Объект event Мышь-координаты
+  </title>
+
+  <style>
+  </style>
+</head>
+
+<body>
+  <div class="text" style="height: auto;">
+    Что это? Чтобы узнать, щёлкните по мне два раза.
+  </div>
+  <div class="hint" style="display: none">Это же div</div>
+
+
+  <div class="map">
+    Это карта
+  </div>
+  <div class="whatIsThis">Что здесь?</div>
+
+
+  <script>
+    const button = document.querySelector('.text');
+    const hint = document.querySelector('.hint');
+
+    button.addEventListener('dblclick', function (event) {
+      hint.setAttribute('style',
+        `position: absolute;
+        top: ${event.pageY}px;
+        left: ${event.pageX}px;
+        display: block;
+        background-color: rgba(255, 204, 0, 0.5)`);
+    });
+
+    const whatIsThis = document.querySelector('.whatIsThis');
+    const map = document.querySelector('.map');
+
+    map.addEventListener('click', function (event) {
+      whatIsThis.setAttribute('style', `
+        display: block;
+        position: fixed;
+        left: ${event.clientX}px;
+        top: ${event.clientY}px;
+    `);
+    });
+
+  </script>
+</body>
+
+</html>

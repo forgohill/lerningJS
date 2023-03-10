@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>МЕТОДЫ МАССИВОВ ДЛЯ ОБЪЕКТОВ</title>
+</head>
+
+<body>
+
+  <script>
+    const dishes = [
+      {
+        name: 'тарелка',
+        type: 'regular',
+        status: 'dirty'
+      },
+      {
+        name: 'Любимая сковордка',
+        type: 'teflon',
+        status: 'dirty'
+      },
+      {
+        name: 'Простой нож',
+        type: 'knife',
+        status: 'dirty'
+      }
+    ];
+
+    // for (let i = 0; i < dishes.length; i++) {
+    //   console.log(dishes[i]);
+    // }
+
+    // dishes.forEach((item) => {
+    //   console.log(item);
+    // });
+
+    function wash(item) {
+      console.log(`Моем ${item.name}`);
+      item.status = 'clean';
+      return item;
+    }
+
+    function washSoftly(item) {
+      console.log(`Моем нежно ${item.name}`);
+      item.status = 'clean';
+      return item;
+    }
+
+    function skip(item) {
+      return item
+    }
+
+    // const cleanDishes = dishes.map((item) => {
+    //   if (item.type === 'teflon') {
+    //     return washSoftly(item);
+    //   } else if (item.type === 'knife') {
+    //     return skip(item);
+    //   }
+    //   return wash(item);
+    // });
+
+    // console.log(cleanDishes);
+
+
+    const result = dishes.reduce((acc, item) => {
+      // console.log('acc = ', acc);
+      if (item.type === 'knife') {
+        return acc;
+      }
+
+      acc.push(wash(item));
+      return acc;
+    }, [])
+
+    // console.log(result);
+
+    dishes.forEach((...rest) => { console.log(rest); })
+  </script>
+</body>
+
+</html>

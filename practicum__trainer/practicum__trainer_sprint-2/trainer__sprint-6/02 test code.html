@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Урок 3: Обращение к свойству</title>
+</head>
+
+<body>
+  <script>
+    const welcomeMessages = {
+      russian: 'Добро пожаловать',
+      english: 'Welcome',
+      french: 'Bienvenue',
+      italian: 'Benvenuto',
+      spanish: 'bienvenido',
+      chinese: '歡迎',
+      finnish: 'Tervetuloa'
+    };
+
+    function addWelcomeMessage(language, message) {
+      welcomeMessages[language] = message;
+      console.log(welcomeMessages);
+    }
+
+    addWelcomeMessage('danish', 'Velkommen');
+    addWelcomeMessage('zulu', 'Ukwamukela');
+
+    console.log(welcomeMessages.danish); // "Velkommen"
+    console.log(welcomeMessages.zulu); // "Ukwamukela"
+
+    // \=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\
+    // \=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\
+    // \=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\
+
+    const phonebook = {
+      'Тёма': {
+        mobile: '+79995164420',
+        work: '+79569172374',
+        home: '+78123552223'
+      },
+      'Вася брат Андрея': {
+        mobile: '+79045174415'
+      }
+    };
+
+
+    function addPhoneNumber(name, numberType, number) {
+      /* если контакта ещё нет,
+      нужно создать под него пустой объект */
+      if (!phonebook[name]) {
+        phonebook[name] = {};
+      };
+      phonebook[name][numberType] = number;
+      // console.log(phonebook[name]);
+    }
+
+
+    // когда функция будет готова, добавьте мобильный Анастасии Павловны
+    addPhoneNumber('Анастасия Павловна', 'mobile', '+79111545616');
+    console.log(phonebook);
+    console.log(phonebook['Анастасия Павловна'].mobile);
+    // "+79111545616"
+
+    // \=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\
+    // \=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\
+    // \=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\
+
+    /*
+    const yourNumber = 'Л055';
+    let windowNumber;
+    
+    switch (yourNumber) {
+      case 'Л054':
+        windowNumber = 1;
+        break;
+      case 'Л055':
+        windowNumber = 2;
+        break;
+      case 'Л056':
+        windowNumber = 3;
+        break;
+      case 'Л057':
+        windowNumber = 4;
+        break;
+      case 'Л058':
+        windowNumber = 5;
+        break;
+    }
+    
+    console.log(windowNumber); // 2 
+    */
+
+
+
+    const yourNumberX = 'Л055';
+    let windowNumberX;
+
+    const windowsX = {
+      'Л054': 1,
+      'Л055': 2,
+      'Л056': 3,
+      'Л057': 4,
+      'Л058': 5,
+    };
+
+    windowNumberX = windowsX[yourNumberX];
+
+    console.log(windowNumberX); // 2
+
+
+    // \=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\
+    // \=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\
+    // \=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\
+
+    const yourNumber = 'Л059';
+    let windowNumber;
+
+    const windows = {
+      'Л054': 1,
+      'Л055': 2,
+      'Л056': 3,
+      'Л057': 4,
+      'Л058': 5,
+    };
+
+    windowNumber = windows[yourNumber] || 0;// допишите ваш код в этой строке
+
+    console.log(windowNumber); // 0
+
+  </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript</title>
+</head>
+
+<body>
+  <script>
+
+    // const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    // const sum = arr.reduce(function (previousValue, item) {
+    // для наглядности выведем аргументы в консоль
+    // console.log(`previousValue: ${previousValue}, item: ${item}`);
+    // return previousValue + item;
+    // });
+
+    // console.log(`sum: ${sum}`);
+
+    /*
+     previousValue: 1, item: 2
+     previousValue: 3, item: 3
+     previousValue: 6, item: 4
+     previousValue: 10, item: 5
+     previousValue: 15, item: 6
+     previousValue: 21, item: 7
+     previousValue: 28, item: 8
+     previousValue: 36, item: 9
+     sum: 45
+    */
+
+
+    const acrostic = [
+      'Довольно именем известна я своим;',
+      'Равно клянётся плут и непорочный им,',
+      'Утехой в бедствиях всего бываю боле,',
+      'Жизнь сладостней при мне и в самой лучшей доле.',
+      'Блаженству чистых душ могу служить одна,',
+      'А меж злодеями — не быть я создана.'
+    ];
+
+    const cipherWord = acrostic.reduce(function (prevVal, item) {
+      return prevVal + item.slice(0, 1);
+    }, '');
+    console.log(cipherWord);
+
+  </script>
+</body>
+
+</html>

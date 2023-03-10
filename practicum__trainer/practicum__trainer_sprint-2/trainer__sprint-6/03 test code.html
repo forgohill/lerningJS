@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Урок 3: Опреаторы delete, in</title>
+</head>
+
+<body>
+  <script>
+    const right = {
+      right1: '⇸',
+      right2: '→',
+      notLeft: '⇍',
+      right3: '⇛',
+      right4: '⇉',
+      left: '⇐'
+    };
+
+    delete right.left;
+
+    console.log(right);
+    /**
+     * ==================================
+  */
+    const welcomeMessages = {
+      russian: 'Добро пожаловать',
+      english: 'Welcome',
+      french: 'Bienvenue',
+      italian: 'Benvenuto',
+      spanish: 'bienvenido',
+      chinese: '歡迎',
+      finnish: 'Tervetuloa'
+    };
+
+    function deleteWelcomeMessages(propsArr) {
+      // console.log(propsArr);
+      propsArr.forEach(element => {
+        // console.log(element);
+        delete welcomeMessages[element];
+      });
+    }
+
+    deleteWelcomeMessages(['italian', 'french']);
+
+    console.log(welcomeMessages);
+
+    /**
+     * ==================================
+     * 
+     * */
+
+    const welcomeMessages1 = {
+      russian: 'Добро пожаловать',
+      english: 'Welcome',
+      french: 'Bienvenue',
+      italian: 'Benvenuto',
+      spanish: 'bienvenido',
+      chinese: '歡迎',
+      finnish: 'Tervetuloa'
+    };
+
+    function countLanguages(obj, propsArr) {
+      return propsArr.reduce(function (res, item) {
+        if (item in obj) {
+          res += 1;
+        }
+        return res;
+      }, 0)
+    };
+
+    console.log(countLanguages(welcomeMessages1, ['english', 'french', 'mandarin'])); // 2
+    console.log(countLanguages(welcomeMessages1, ['russian', 'czech'])); // 1
+  </script>
+
+
+
+</body>
+
+</html>

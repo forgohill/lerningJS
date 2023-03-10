@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>добавляем элементы</title>
+  <!-- ПРОГРАММА -->
+
+  <style class="fonts">
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+    .page {
+      font-family: 'Montserrat', Helvetica, sans-serif, Arial;
+      font-style: normal;
+      font-weight: 400;
+    }
+  </style>
+  <style>
+  </style>
+
+</head>
+
+<body class="page">
+  <ul class="list">
+    <li class="list__item">1</li>
+    <li class="list__item">2</li>
+    <li class="list__item">3</li>
+    <li class="list__item">4</li>
+    <li class="list__item">5</li>
+  </ul>
+  <template id="user">
+    <div class="user">
+      <img class="user__avatar" alt="avatar">
+      <p class="user__name">Piano!</p>
+    </div>
+  </template>
+
+  <script>
+    const userTemplate = document.querySelector('#user').content;
+    const usersOnline = document.querySelector('.list');
+
+    // клонируем содержимое тега template
+    const userElement = userTemplate.querySelector('.user').cloneNode(true);
+
+    // наполняем содержимым
+    userElement.querySelector('.user__avatar').src = 'http://tinyurl.com/v4pfzwy';
+    userElement.querySelector('.user__name').textContent = 'Дюк Корморант';
+
+    // отображаем на странице
+    usersOnline.append(userElement);
+
+  </script>
+</body>
+
+</html>

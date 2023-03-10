@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Урок 3: тренажер: Сравнение объектов
+    - object</title>
+</head>
+
+<body>
+  <script>
+    function compare(firstObj, secondObj) {
+      if (firstObj === secondObj) { return true; }
+      return false;
+    }
+
+    const first1 = {
+      property: 'value'
+    };
+
+    const second1 = {
+      property: 'value'
+    };
+
+    const third1 = second1;
+
+    // console.log(compare(first1, second1)); // false
+    // console.log(compare(second1, third1)); // true+
+
+    //-----------------------------------
+
+    function isEqual(firstObj, secondObj) {
+      const firstKeys = Object.keys(firstObj);
+      const secondKeys = Object.keys(secondObj);
+
+      // проверим, одинаковое ли количество ключей в объектах
+      if (firstKeys.length !== secondKeys.length) {
+        // если нет, то всё: объекты точно не равны
+        return false;
+      };
+
+      /* проверим, что для каждого ключа первого объекта
+      значения в первом и втором объекте равны */
+
+
+      // return firstKeys.every(function (key) {
+      //   return firstObj[key] === secondObj[key];
+      // });
+      const lef = firstKeys.every(function (key) {
+        return firstObj[key] === secondObj[key];
+
+        console.log(lef);
+        return lef;
+      });
+      console.log(lef);
+    };
+
+    const first = {
+      property: 'value',
+      anotherProperty: 'another value'
+    };
+
+    const second = {
+      property: 'value',
+      anotherProperty: 'another value'
+    };
+
+    const third = {
+      property: 'value',
+      anotherProperty: 'one more value'
+    };
+    // console.log(third);
+    isEqual(first, second); // true
+    isEqual(second, third); // false
+
+  </script>
+
+
+
+</body>
+
+</html>

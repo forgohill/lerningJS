@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Урок 3: тренажер removeEventListener
+  </title>
+
+  <style>
+  </style>
+</head>
+
+<body>
+  <!-- index.html -->
+
+  <div id="parent">
+    <div id="firstChild">
+      <div id="secondChild">
+        <div id="thirdChild">Нажми и всё поймёшь</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* script.js */
+
+    const parent = document.querySelector('#parent');
+    const firstChild = document.querySelector('#firstChild');
+    const secondChild = document.querySelector('#secondChild');
+    const thirdChild = document.querySelector('#thirdChild');
+
+    function callback(evt) {
+      console.log('Событие обработано');
+    };
+
+    parent.addEventListener('click', callback);
+    firstChild.addEventListener('click', callback);
+    secondChild.addEventListener('click', callback);
+    thirdChild.addEventListener('click', callback);
+
+  </script>
+</body>
+
+</html>

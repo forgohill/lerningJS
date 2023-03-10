@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript</title>
+</head>
+
+<body>
+  <script>
+
+    const birds = [
+      'Ворона',
+      'Чёрно-белая ворона',
+      'Белая ворона',
+      'Ворона обыкновенная'
+    ];
+
+    const includesCrow = birds.some(function (bird) {
+      return bird.includes('ворона');
+    });
+
+    const crow = birds.find(function (bird) {
+      return bird.includes('вороына');
+    });
+
+    console.log(includesCrow); // true
+    console.log(crow); // "Чёрно-белая ворона"
+
+    const jokes = [
+      'смешная шутка и доля правды',
+      'не очень смешной анекдот + доля правды',
+      'доля правды в дурацкой шутке, услышав которую, все улыбнулись из вежливости'
+    ];
+
+    const allJokesWithTruth = jokes.every(function (joke) {
+      return joke.indexOf('доля правды') > -1;
+    });
+
+    console.log(allJokesWithTruth); // true
+
+
+
+    const arreyString = [
+      'два десять',
+      'два тридцать',
+      'сорок два',
+      'три + два'
+    ];
+
+    const allArreyString = arreyString.every(function (str) {
+      return str.indexOf('два') > -1;
+    });
+
+    console.log(allArreyString); // true
+  </script>
+</body>
+
+</html>
