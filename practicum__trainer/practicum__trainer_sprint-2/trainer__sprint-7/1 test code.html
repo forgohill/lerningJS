@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>sprint-7</title>
+</head>
+
+<body>
+  <h1>Краткое погружение в this</h1>
+
+  <script>
+    function like() {
+      this.isLiked = !this.isLiked;
+    }
+
+    function getSongInfo() {
+      // console.log(`${this.artist} - ${this.title} ${this.releaseYear}`);
+      return `${this.artist} - ${this.title} ${this.releaseYear}`;
+    }
+
+    function createSong(title, artist, releaseYear) {
+      const newSong = {
+        title,
+        artist,
+        isLiked: false,
+        like: like,
+        releaseYear,
+        getSongInfo
+      }
+
+      return newSong;
+    }
+
+    const song1 = createSong('Жопа', 'С ручкой', 1988);
+    console.log(song1);
+    song1.getSongInfo();
+  </script>
+
+
+</body>
+
+</html>

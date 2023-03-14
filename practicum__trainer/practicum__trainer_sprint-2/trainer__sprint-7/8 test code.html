@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>sprint-7</title>
+</head>
+
+<body>
+  <h1>Полиморфизм</h1>
+  <h2>_</h2>
+  <script>
+    class Student {
+      constructor(name, cohort) {
+        this._name = name;
+        this._cohort = cohort;
+        this._profession = null;
+        this._trainingDuration = null;
+      }
+
+      getInfo() {
+        return {
+          name: this._name,
+          cohort: this._cohort,
+          profession: this._profession,
+          trainingDuration: this._trainingDuration
+        }
+      }
+    }
+
+    class WebDeveloperStudent extends Student {
+      constructor(name, cohort) {
+        super(name, cohort);
+        this._profession = 'Web developer';
+        this._trainingDuration = 10;
+      }
+
+      getInfo() {
+        return super.getInfo();
+      }
+    }
+
+    class PythonDeveloperStudent extends Student {
+      constructor(name, cohort) {
+        super(name, cohort);
+        this._profession = 'Python developer';
+        this._trainingDuration = 9;
+      }
+      getInfo() {
+        return {
+          name: this._name,
+          cohort: this._cohort,
+          profession: this._profession,
+          trainingDuration: this._trainingDuration,
+          language: 'Python'
+        }
+      }
+    }
+
+    class DesignerStudent extends Student {
+      constructor(name, cohort) {
+        super(name, cohort);
+        this._profession = 'Designer';
+        this._trainingDuration = 6;
+      }
+    }
+
+    const student1 = new WebDeveloperStudent('Петя Васечкин', 1);
+    const student2 = new PythonDeveloperStudent('Павел Морозов', 2);
+    const student3 = new DesignerStudent('Маша Иванова', 3);
+    const studentWithoutProfession = new Student('Зураб Царители', 6);
+
+
+    function getInfoList(students) {
+      if (!Array.isArray(students)) {
+        return [];
+      }
+      return students.map((student) => student.getInfo());
+    }
+
+    getInfoList([student1, student2, student3]);
+    console.log(getInfoList([student1, student2, student3, studentWithoutProfession]));
+    console.dir(student1);
+    console.dir(student2);
+    console.dir(student3);
+    console.dir(studentWithoutProfession);
+
+
+
+    console.log(student1.getInfo === studentWithoutProfession.getInfo);
+    console.log(student3.getInfo === studentWithoutProfession.getInfo);
+
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>sprint-7</title>
+</head>
+
+<body>
+  <h1>Классы</h1>
+
+  <script>
+    class Song {
+      constructor(title, artist) {
+        this.title = title;
+        this.artist = artist;
+      }
+      like() {
+        this.isLiked = !this.isLiked;
+      }
+    }
+
+    const song = new Song('Елки палки', 'Ёмаё');
+    console.log(song);
+
+    const song1 = new Song('Start Over', 'Any Given Day');
+    const song2 = new Song('Bitter End', 'The Veer Union');
+
+    console.log(song1.like === song2.like); // true
+  </script>
+
+
+</body>
+
+</html>

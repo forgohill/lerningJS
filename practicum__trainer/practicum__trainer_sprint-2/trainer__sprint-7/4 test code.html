@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>sprint-7</title>
+</head>
+
+<body>
+  <h1>Инкапсуляция</h1>
+  <h2>Приватные методы и свойства</h2>
+  <script>
+    class Car {
+      constructor(maxGasTankValue, fuelConsumption) {
+        this._gasTankValue = 0;
+        this._maxGasTankValue = maxGasTankValue;
+        this._fuelConsumption = fuelConsumption; // литров на 100 км
+      }
+
+      _getAviableGasValue(gasValue) {
+        if (gasValue < 0) return 0;
+        if (gasValue > this._maxGasTankValue) return this._maxGasTankValue;
+        return gasValue;
+      }
+
+      refuel(gasValue) {
+        this._gasTankValue = this._getAviableGasValue(gasValue);
+      }
+
+      getDistance() {
+        return this._gasTankValue / this._fuelConsumption * 100;
+      }
+    }
+
+    const car = new Car(70, 9);
+    car.refuel(45);
+
+    console.log(car._gasTankValue); // 45 свойство на самом деле не приватное его можно запросто изменить
+    console.log(car.getDistance()); // 500
+
+  </script>
+
+
+</body>
+
+</html>

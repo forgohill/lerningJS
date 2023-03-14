@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>sprint-7</title>
+</head>
+
+<body>
+  <h1>Наследование</h1>
+  <h2>_</h2>
+  <script>
+    class Student {
+      constructor(name, cohort) {
+        this._name = name;
+        this._cohort = cohort;
+        this._profession = null;
+        this._trainingDuration = null;
+      }
+
+      getInfo() {
+        return {
+          name: this._name,
+          cohort: this._cohort,
+          profession: this._profession,
+          trainingDuration: this._trainingDuration
+        }
+      }
+    }
+
+    const newStudent = new Student(1, 2, 3, 4);
+    console.log(newStudent);
+    console.dir(newStudent);
+
+    console.log('000000');
+
+    console.log(newStudent.getInfo());
+  </script>
+
+
+</body>
+
+</html>
