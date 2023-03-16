@@ -326,9 +326,10 @@
 
   <main class="content page__content">
 
-    <h1>Подготовка класса к масштабированию_тренажер
+    <h1>Обработчики событий
+      _тренажер
     </h1>
-    <h2>часть__2</h2>
+    <h2>часть__4</h2>
 
     <div class="filter content__filter">
       Отображение:
@@ -407,6 +408,12 @@
       },
     ];
 
+
+    const popupElement = document.querySelector('.popup');
+    const popupImage = document.querySelector('.popup__image');
+    const popupCloseButton = document.querySelector('.popup__close');
+
+
     class Card {
       constructor(data, templateSelector) {
         this._title = data.title;
@@ -432,6 +439,8 @@
         // появится доступ к разметке
         this._element = this._getTemplate();
 
+        // вызовем навешиватель слушивателей
+        this._setEventListeners();
 
         // добавим данные для каждого елемента
         this._element
@@ -453,6 +462,28 @@
 
         // НЕ ЗАБЫВАЕМ ВЕРНУТЬ ЭТО «ГОВНО»
         return this._element;
+      }
+
+      _handleOpenPopup() {
+        popupImage.src = this._image;
+        popupElement.classList.add('popup_is-opened');
+      };
+
+      _handleClosePopup() {
+        popupImage.src = '';
+        popupElement.classList.remove('popup_is-opened');
+      };
+
+      _setEventListeners() {
+        this._element
+          .addEventListener('click', () => {
+            this._handleOpenPopup();
+          });
+
+        popupCloseButton
+          .addEventListener('click', () => {
+            this._handleClosePopup();
+          });
       }
     }
 
