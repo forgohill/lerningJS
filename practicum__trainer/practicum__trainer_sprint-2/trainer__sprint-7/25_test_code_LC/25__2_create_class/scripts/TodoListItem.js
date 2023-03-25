@@ -40,6 +40,7 @@ class TodoListItem {
 
   render() {
     this._view = TodoListItem._template.cloneNode(true).children[0];
+    console.log(this._view);
 
     // тут надо анполнить данными
     // наполнить обработчиками событий
