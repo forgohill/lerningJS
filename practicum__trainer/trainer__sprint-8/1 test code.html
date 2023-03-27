@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sprint-7</title>
+</head>
+
+<body>
+
+
+  <script>
+
+    // Деструктуризация объектов
+    const user = {
+      name: 'Василий',
+      age: '28',
+      lookingForJob: true
+    };
+
+    const name = user.name;
+    const age = user.age;
+
+    /* теперь имя и возраст хранятся в переменных,
+    с ними удобно работать */
+
+    console.log(name);
+    console.log(age);
+
+    const greekGods = {
+      love: 'Афродита',
+      war: 'Арес',
+      trade: 'Геремес',
+    }
+
+    // перечисляем свойства, которые нужно
+    // достать , в фигурных скобках
+
+    const { love, war, trade } = greekGods; // имена переменных совпадают с ключами объекта
+
+    console.log(love, war, trade);
+
+    /**
+     * Если имена переменных и ключи объекта
+     * должны отличаться, можно дописывать
+     * имя каждой переменной после имени
+     * свойства через двоеточие:
+    */
+
+    const {
+      love: goddessOfLove,
+      war: goddessOfWar,
+      trade: goddessOfTrade,
+    } = greekGods;
+
+    console.log(goddessOfLove, goddessOfWar, goddessOfTrade);
+
+    // Деструктуризация массива
+    const precipitation = ['дождь', 'морось', 'роса',];
+    const [rain, drizzle, dew] = precipitation;
+    console.log(rain, drizzle, dew);
+    console.log('___________________');
+    // Параметры функции
+
+    const userData = {
+      name: 'Виктор',
+      patronymic: 'Семёнович',
+      age: 55,
+    };
+
+    const printUserParams = ({ name, patronymic, age }) => {
+      console.log(name);
+      console.log(patronymic);
+      console.log(age);
+    }
+
+    printUserParams(userData);
+    console.log('___________________');
+
+    const paymentInfo = {
+      method: 'card',
+      amount: 1000,
+      currncy: 'rub',
+    };
+
+    const printParamsAndPay = (
+      { name, patronymic, age },
+      { amount, ...payment }
+    ) => {
+      console.log(name, patronymic, age);
+      console.log(amount, payment);
+    };
+
+    printParamsAndPay(userData, paymentInfo);
+
+    // код без использования деструктуриризации
+    /*
+        class Card {
+          constructor(data) {
+            this._text = data.text;
+            this._image = data.image;
+            this._description = data.description;
+          }
+        }
+    */
+
+    // код с использованием деструктуриризации
+    class Card {
+      constructor({ text, image, description })
+      // достём ключи объекта сразу
+      {
+        // теперь значения ключей
+        // лежат в одноименных переменных
+        this._text = text;
+        this._image = image;
+        this._description = description;
+      }
+    }
+    console.log('___________________');
+    // consoleUserInfo выводит данные пользователя в консоль
+    function consoleUserInfo(user) {
+      // если какого-то из своств не будет в переданном объекте, 
+      // в переменные запишутся значения после равенства
+      const { name = 'Дэвид', dateOfBirth = '8 января' } = user;
+      console.log(`${name}, ${dateOfBirth}`);
+    }
+
+    // name и dateOfBirth будут взяты из переданного объекта
+    consoleUserInfo({ name: 'Леонард', dateOfBirth: '21 сентября' });
+    // name будет взято зи переданного объекта, а
+    // dateOfBirth примет значение по умолчанию
+    consoleUserInfo({ name: 'Стивен', });
+    // всё как в прошлый раз только наоборот
+    consoleUserInfo({ dateOfBirth: '2 мая', });
+    // name dateOfBirth
+    consoleUserInfo({});
+
+    console.log('___________________');
+
+    function getFirstThreeUsers(users) {
+      const [first = 'Дэвид', second = 'Леонард', third = 'Стивен'] = users;
+      console.log(first, second, third);
+    }
+
+    // если не передать третьего пользователя, им станет Стивен
+    // так как переменная third в коде функции примет значение по умолчанию
+    getFirstThreeUsers(['Элвис', 'Ларс']);
+  </script>
+</body>
+
+</html>

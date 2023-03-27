@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sprint-7</title>
+</head>
+
+<body>
+
+
+  <script>
+    // измените код функции countUserPosts
+    // const countUserPosts = (user) => {
+    //   return user.posts.length;
+    // };
+    const countUserPosts = ({ posts }) => posts.length;
+    const user1 = {
+      id: 2294611830,
+      username: 'leonardo.dv',
+      posts: [
+        { comment: 'Витрувианский человек', dateCreated: 1490 },
+        { comment: 'Портрет музыканта', dateCreated: 1490 },
+        { comment: 'Автопортрет в Турине #selfie', dateCreated: 1512 },
+      ]
+    };
+    console.log(
+      countUserPosts(user1) // 3
+    );
+  </script>
+</body>
+
+</html>
