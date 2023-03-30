@@ -26,7 +26,19 @@ const cardsList = new Section(
 cardsList.renderItems();
 
 // создаем экземляр формы
-const form = new SubmitForm({ selector: '.form-template' });
+const form = new SubmitForm({
+  selector: '.form-template',
+  handleFormSubmit: (formData) => {
+
+    // при создании экземпляра UserCard передаём
+    // ему объект с данными формы
+    const message = new UserCard(formData, '.card-template_type_user');
+
+    const messageElement = message.generateCard();
+
+    cardsList.setItem(messageElement);
+  }
+});
 
 const formElement = form.generate();
 
