@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    }
+
+    code {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: rgba(105, 105, 105, 0.164);
+      border: 1px solid dimgray;
+      border-radius: 4px;
+
+      padding: 3px 10px;
+    }
+
+    .abzac {
+      max-width: 600px;
+      padding: 0 50px;
+    }
+  </style>
+</head>
+<div class="abzac">
+  <h1>
+    Расчет с функциями
+  </h1>
+  <p>
+    На этот раз мы хотим написать вычисления с использованием функций и получить результаты. Давайте посмотрим на
+    некоторые примеры:</p>
+
+  <p><code>seven(times(five())); // must return 35</code></p>
+  <p><code>four(plus(nine())); // must return 13</code></p>
+  <p><code>eight(minus(three())); // must return 5</code></p>
+  <p><code>six(dividedBy(two())); // must return 3</code></p>
+
+  <ul>
+    Требования:
+    <li>Должна быть функция для каждого числа от 0 ("ноль") до 9 ("девять")</li>
+    <li>Должна быть функция для каждой из следующих математических операций: плюс, минус, умножить, разделить.</li>
+    <li>Каждое вычисление состоит ровно из одной операции и двух чисел</li>
+    <li>Самая внешняя функция представляет левый операнд, самая внутренняя функция представляет правый операнд.</li>
+    <li>Деление должно быть целочисленным . Например, это должно возвращать <code>2</code>, а не
+      <code>2.666666...</code>:
+    </li>
+  </ul>
+  <p><code>eight(dividedBy(three()));</code></p>
+
+</div>
+
+
+
+
+<body>
+  <script src="./script/cw8.js"></script>
+</body>
+
+</html>

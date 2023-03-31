@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sprint-7</title>
+</head>
+
+<body>
+  <h1>Привязка this по умолчанию и потеря контекста</h1>
+  <input class="btn" type="button" value="Жамкай">
+
+  <script>
+
+    function globalFunction() {
+      console.log(this);
+    }
+
+    globalFunction();
+
+    class SendButton {
+      constructor() {
+        this.buttonName = 'Send Button';
+      }
+
+      click() {
+        console.log('I am ' + this.buttonName);
+        console.log('I am ' + this.value);
+      }
+
+      setEventListener() {
+        // Передадим слушателю события метод SendButton.click как колбэкЖ
+        document
+          .querySelector('.btn')
+          .addEventListener('click', this.click);
+        // При клике мы надеемся увидеть сообщение "I am Send Button"
+      }
+    }
+
+    const button = new SendButton;
+    button.setEventListener();
+
+  </script>
+</body>
+
+</html>

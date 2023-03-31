@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sprint-7</title>
+</head>
+
+<body>
+  <h1>Явная привязка. Метод bind</h1>
+  <input class="btn" type="button" value="Жамкай">
+
+  <script>
+
+    function chopVagetables() {
+      console.log(`Chop ${this}`);
+    }
+    const boundChopVagetables = chopVagetables.bind('🥒');
+
+    boundChopVagetables();
+    console.log('=========================');
+
+
+    const car = {
+      registrationNumber: '0287AE',
+      brand: 'Tesla'
+    };
+
+    function displayDetails(ownerName, greeting) {
+      console.log(`${greeting} ${ownerName}`);
+      console.log(`Car info: ${this.registrationNumber} ${this.brand}`);
+    }
+    // создаём новую функцию с привязанным контекстом
+    // Где бы ни вызвали функцию boundDisplayDetails,
+    // значением this внутри неё всегда будет объект car
+    const boundDisplayDetails = displayDetails.bind(car);
+
+    // теперь её можно вызвать по имени к ней привязан контекст
+    boundDisplayDetails('Matt', 'Hello')
+
+    console.log('=========================');
+
+
+    class SendButton {
+      constructor() {
+        this.buttonName = 'Send Button'
+      }
+
+      click() {
+        console.log('i am ' + this.buttonName);
+      }
+
+      setEventLListeners() {
+        document
+          .querySelector('.btn')
+          .addEventListener('click', this.click.bind(this));
+        // жестко привязываем контекст при передаче функции
+      }
+    }
+
+    const button = new SendButton();
+    button.setEventLListeners();
+  </script>
+</body>
+
+</html>

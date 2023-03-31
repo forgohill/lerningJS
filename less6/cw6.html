@@ -8,28 +8,44 @@
   <title>Document</title>
   <style>
     * {
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    }
+
+    code {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: rgba(105, 105, 105, 0.164);
+      border: 1px solid dimgray;
+      border-radius: 4px;
+
+      padding: 3px 10px;
+    }
+
+    .abzac {
+      max-width: 600px;
+      padding: 0 50px;
     }
   </style>
 </head>
-<h1>
-  Изограммы
-</h1>
-<p>
-  Изограмма — это слово, в котором нет повторяющихся букв, последовательных или непоследовательных. Реализуйте функцию,
-  определяющую, является ли строка, содержащая только буквы, изограммой. Предположим, что пустая строка является
-  изограммой. Игнорировать регистр букв.
-</p>
 
-<p>Example: (Input --> Output)</p>
-
-<p>"Dermatoglyphics" --> true "aba" --> false "moOse" --> false (ignore letter case)</p>
-
-<p>isIsogram "Dermatoglyphics" = true</p>
-<p>isIsogram "moose" = false</p>
-<p>isIsogram "aba" = false</p>
 
 <body>
+  <h1>
+    Изограммы
+  </h1>
+  <p>
+    Изограмма — это слово, в котором нет повторяющихся букв, последовательных или непоследовательных. Реализуйте
+    функцию,
+    определяющую, является ли строка, содержащая только буквы, изограммой. Предположим, что пустая строка является
+    изограммой. Игнорировать регистр букв.
+  </p>
+
+  <p>Example: (Input --> Output)</p>
+
+  <p>"Dermatoglyphics" --> true "aba" --> false "moOse" --> false (ignore letter case)</p>
+
+  <p>isIsogram "Dermatoglyphics" = true</p>
+  <p>isIsogram "moose" = false</p>
+  <p>isIsogram "aba" = false</p>
   <script src="./script/cw6.js"></script>
 </body>
 
