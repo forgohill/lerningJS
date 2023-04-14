@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sprint-9</title>
+</head>
+
+<body>
+  <h1 class="tweetContainers">1</h1>
+
+  <script>
+    const tweets = [
+      'Какой-то странный тред',
+      'Твит, адресованный Илону Маску',
+      'Ответ на инфоповод',
+    ];
+
+    tweets.forEach((tweet) => {
+      console.log(tweet);
+    });
+
+    console.log('________________');
+
+    function consoleTweet(tweet) {
+      console.log(tweet);
+    }
+
+    tweets.forEach(consoleTweet);
+    console.log('________________');
+
+
+    function handleError(tweet) {
+      const newTweetContaner = document.createElement('div');
+      newTweetContaner.textContent = tweet;
+      document.body.append(newTweetContaner);
+    }
+
+    function insertTweet(tweet, contanerSelector, callback) {
+      const tweetContainer = document.querySelector(contanerSelector);
+
+      // проверка на наличие твит контейнера
+      if (!tweetContainer) {
+        callback(tweet);
+
+
+
+        return;
+      }
+
+      tweetContainer.textContent = tweet;
+    };
+
+    tweets.forEach((tweet) => {
+      insertTweet(tweet, '.tweet', handleError);
+    });
+
+
+  </script>
+</body>
+
+</html>

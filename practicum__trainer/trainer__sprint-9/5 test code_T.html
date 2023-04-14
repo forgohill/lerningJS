@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sprint-9</title>
+
+  <style>
+    * {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    }
+
+    code {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: rgba(105, 105, 105, 0.164);
+      border: 1px solid dimgray;
+      border-radius: 4px;
+
+      padding: 3px 10px;
+    }
+
+    .abzac {
+      max-width: 600px;
+      padding: 0 50px;
+    }
+
+    img {
+      width: 500px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="headingContainers">H1</h1>
+  <p class="insertText">insertText</p>
+
+  <script>
+    function handleLoadError(evt) {
+      console.log('Всё идёт не по плану');
+    }
+
+    function handleImageLoad(evt) {
+      // после загрузки добавим элемент изображения в DOM
+      document.body.append(evt.target);
+    }
+
+    // дополните код функции
+    function loadImage(imageUrl, loadCallback, errorCallback) {
+      const img = document.createElement('img');
+      img.src = imageUrl;
+      img.onload = loadCallback;
+      img.onerror = errorCallback;
+    }
+
+    loadImage(
+      'https://pictures.s3.yandex.net/frontend-developer/functions/dog-12345.jpg',
+      handleImageLoad,
+      handleLoadError
+    );
+
+
+
+  </script>
+</body>
+
+</html>

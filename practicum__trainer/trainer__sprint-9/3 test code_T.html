@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sprint-9</title>
+</head>
+
+<body>
+  <h1 class="tweetContainers">1</h1>
+
+  <script>
+    const tweets = [
+      'Какой-то странный тред',
+      'Твит, адресованный Илону Маску',
+      'Ответ на инфоповод'
+    ];
+
+    function forEach(arr, callback) {
+      for (let i = 0; i < arr.length; i++) {
+        const element = arr[i];
+        callback(element);
+      }
+    }
+
+    forEach(tweets, function (tweet) {
+      console.log(tweet);
+    });
+
+  </script>
+</body>
+
+</html>

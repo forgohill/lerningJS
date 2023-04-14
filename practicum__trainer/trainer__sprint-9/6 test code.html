@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sprint-9</title>
+
+  <style>
+    * {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    }
+
+    code {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: rgba(105, 105, 105, 0.164);
+      border: 1px solid dimgray;
+      border-radius: 4px;
+
+      padding: 3px 10px;
+    }
+
+    .abzac {
+      max-width: 600px;
+      padding: 0 50px;
+    }
+
+    img {
+      width: 300px;
+    }
+
+    button {
+      border-radius: 3px;
+      border-color: cornflowerblue;
+
+      background-color: aliceblue;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="tweetContainers">H1</h1>
+  <p class="insertText">insertText</p>
+  <button id="but" type="reset">'click'</button>
+  <button id="but2" type="reset">'click'</button>
+
+  <form action="">
+    <input type="checkbox" name="" id="checkbox">
+  </form>
+  <script>
+    function showMessage(message) {
+      console.log(message);
+    }
+
+    setTimeout(showMessage, 10000, 'С загрузки страницы про 10 секунд');
+    /*
+      с загрузки прошло 10 секунд (10 миллисекунд)
+      после загрузки страницы в консоли появится сообщение.
+    */
+
+    function logOut(message) {
+      // здесь логика «выкидывания» пользователя из системы
+      // не переживайте, скоро вы сможете её реализовать
+
+      console.log(message);
+    }
+
+    // через 10 секунд вылетит сообщение если ничего не происходит
+    let timer = setTimeout(logOut, 10000, 'вам пизда');
+
+    // если юзер кликнул куда-то , 
+    // сбросим таймер и будем ждать заного
+    window.
+      addEventListener('click', function () {
+        clearTimeout(timer);
+        timer = setTimeout(logOut, 10000, 'вам пизда');
+      });
+
+    function checkEmail() {
+      // Тут код для проверки, не появилось ли
+      // на почтовом сервере новых писем.
+
+      console.log('сработал checkEmail');
+    };
+
+    setInterval(checkEmail, 1000);
+
+
+    const checkbox = document.querySelector('#checkbox');
+    const button = document.querySelector('#but');
+    const button2 = document.querySelector('#but2');
+
+    let today = new Date();
+
+
+    function checkAndClearEmail() {
+      let now = today.toLocaleString();
+      console.log(now);
+    };
+
+    const interval = setInterval(checkAndClearEmail, 1000);
+
+    // если юзер переключил вкладку
+    button.addEventListener('click', function () {
+      clearInterval(interval); // удаляем таймер
+    });
+
+
+    button2.addEventListener('focus', function () {
+      interval = setInterval(checkAndClearEmail, 1000); // снова запускаем интервальный таймер
+    });
+
+  </script>
+</body>
+
+</html>
