@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sprint-9</title>
+
+  <style>
+    html,
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      height: 100%;
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+    }
+
+    input,
+    button {
+      border: none;
+    }
+
+    .header {
+      max-width: 468px;
+      height: 80px;
+      margin: auto;
+      display: flex;
+      padding-top: 30px;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .header__logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .header__logo {
+      width: 150px;
+      -webkit-filter: invert(1);
+      filter: invert(1);
+    }
+
+    .header__logo-sub {
+      margin-left: 10px;
+      margin-bottom: 25px;
+      font-size: 0.6em;
+    }
+
+    .container {
+      max-width: 468px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .quote {
+      margin: 40px 0;
+      width: 100%;
+      font-size: 5.5em;
+      font-weight: bold;
+    }
+
+    .header__btn {
+      font-size: 0.8em;
+      width: 150px;
+      height: 50px;
+      background-color: #ffdb4d;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__logo-container">
+      <img src="https://pictures.s3.yandex.net/frontend-developer/dom_bom/logo.svg" alt="" class="header__logo">
+      <p class="header__logo-sub">Цитаты Канье Уэста</p>
+    </div>
+    <button class="header__btn">Ещё цитата</button>
+  </header>
+  <main class="container">
+    <div class="quote">
+      Sometimes you have to get rid of everything
+    </div>
+  </main>
+  <script>
+    const quoteElement = document
+      .querySelector('.quote');
+
+    function updateQuote() {
+      fetch('https://api.kanye.rest')
+        .then(res => res.json())
+        .then((data) => {
+          quoteElement.textContent = data.quote;
+        });
+    }
+
+    document
+      .querySelector('.header__btn').addEventListener('click', updateQuote);
+
+  </script>
+</body>
+
+</html>

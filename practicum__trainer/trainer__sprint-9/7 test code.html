@@ -49,8 +49,40 @@
     <input type="checkbox" name="" id="checkbox">
   </form>
   <script>
+    const newPromise = new Promise(
+      function (resolve, reject) {
+        // создадим рандомайзер который имтирует работу с сервером
 
+        const rand = Math.random() > 0.5 ? true : false;
 
+        if (rand) {
+          resolve('запрос обработан успешно');
+        } else {
+          reject('запрос отклонён'); 1
+        }
+      });
+
+    newPromise
+      .then(function (value) { // если promise был обработан
+        /*
+        Параметр value хранит значение, переданное методу
+        resolve при создании промиса, то есть строку
+        "Запрос обработан успешно"
+        */
+        console.log(value)
+      })
+      .catch(function (value) { // Если промис был отклонён
+        /*
+        Здесь параметр value будет хранить то значение,
+        которое было передано методу reject, то есть строку
+        "Запрос отклонён"
+        */
+
+        console.log(value + ', нам жаль :(');
+      })
+      .finally(function () { // В любом случае
+        console.log('как бы там ни было — запрос мы в глаза видели');
+      });
 
   </script>
 </body>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sprint-9</title>
+
+  <style>
+    * {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    }
+
+    code {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: rgba(105, 105, 105, 0.164);
+      border: 1px solid dimgray;
+      border-radius: 4px;
+
+      padding: 3px 10px;
+    }
+
+    .abzac {
+      max-width: 600px;
+      padding: 0 50px;
+    }
+
+    img {
+      width: 300px;
+    }
+
+    button {
+      border-radius: 3px;
+      border-color: cornflowerblue;
+
+      background-color: aliceblue;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="tweetContainers">H1</h1>
+  <p class="insertText">insertText</p>
+  <button id="but" type="reset">'click'</button>
+  <button id="but2" type="reset">'click'</button>
+
+  <form action="">
+    <input type="checkbox" name="" id="checkbox">
+  </form>
+  <script>
+
+    // function handleLoadError() {
+    //   console.log('Всё идёт не по плану');
+    // }
+
+    // function handleImageLoad(evt) {
+    //   document.body.append(evt.target);
+    // }
+
+    // const loadImage = new Promise();
+
+    function loadImage(imageUrl) {
+      return new Promise(
+        (resolve, reject) => {
+          const image = document.createElement('img');
+          image.src = imageUrl;
+          image.onerror = reject;
+          image.onload = resolve;
+        });
+    };
+
+    // исправьте тело функции loadImage
+    // function loadImage(imageUrl, loadCallback, errorCallback) {
+    //   const image = document.createElement('img');
+    //   image.src = imageUrl;
+    //   image.onerror = errorCallback;
+    //   image.onload = loadCallback;
+    // }
+
+    // работать должно так
+    loadImage('https://pictures.s3.yandex.net/frontend-developer/functions/dog-1.jpg')
+      .then((evt) => {
+        document.body.append(evt.target);
+      })
+      .catch(() => {
+        console.error('Всё идёт не по плану.');
+      });
+
+  </script>
+</body>
+
+</html>
