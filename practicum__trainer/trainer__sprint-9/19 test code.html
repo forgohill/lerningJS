@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sprint-9</title>
+
+  <style>
+    * {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    }
+
+    code {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: rgba(105, 105, 105, 0.164);
+      border: 1px solid dimgray;
+      border-radius: 4px;
+
+      padding: 3px 10px;
+    }
+
+    .abzac {
+      max-width: 600px;
+      padding: 0 50px;
+    }
+
+    img {
+      width: 300px;
+    }
+
+    button {
+      border-radius: 3px;
+      border-color: cornflowerblue;
+
+      background-color: aliceblue;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="tweetContainers">H1</h1>
+  <p class="insertText">insertText</p>
+  <button id="but" type="reset">'click'</button>
+  <button id="but2" type="reset">'click'</button>
+
+  <form action="">
+    <input type="checkbox" name="" id="checkbox">
+  </form>
+
+  <script>
+    const obj3 = {
+      messageRu: 'Привет, мир!'
+    };
+
+    const obj4 = {
+      messageEng: 'Hello, world!'
+    };
+
+    const obj5 = {
+      messageFrench: 'Bonjour le monde!'
+    };
+
+    obj4.__proto__ = obj3;
+    obj5.__proto__ = obj4;
+
+    console.log(obj5.messageFrench); // "Bonjour le monde!"
+
+    console.log(obj5.messageEng); // "Hello, world!" — не нашлось в obj5, но нашлось по ссылке __proto__ в obj4
+
+    console.log(obj5.messageRu); // "Привет, мир!" — не нашлось в obj5, не нашлось по ссылке __proto__ в obj4, но нашлось по ссылке obj4.__proto__, то есть в obj3 
+  </script>
+
+</body>
+
+</html>
