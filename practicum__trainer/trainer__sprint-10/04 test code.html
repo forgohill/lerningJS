@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html,
+    body,
+    h1,
+    h2,
+    h3,
+    p,
+    ul,
+    li {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #202020;
+      color: #fff;
+    }
+
+    #root>div {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .item {
+      width: 300px;
+      height: 300px;
+      margin: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .item:first-of-type {
+      background-color: #2F78FA;
+      color: #fff;
+    }
+
+    .item:last-of-type {
+      background-color: #53F675;
+      color: #202020;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <script type="text/jsx" src="./jsx/04 test code.jsx"></script>
+</body>
+
+</html>
