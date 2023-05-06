@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sprint-9</title>
+
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn {
+      border: none;
+      font-size: 0.8em;
+      width: 150px;
+      height: 50px;
+      background-color: #ff684dcb;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <button class="btn">Нажмите меня</button>
+  </div>
+
+  <script>
+    const dataForSum = {
+      firstArgument: 10,
+      secondArgument: 44
+    };
+
+    const dataForMultiply = {
+      firstArgument: 10,
+      secondArgument: 44
+    };
+
+    const functions = {
+      sum() {
+        return this.firstArgument + this.secondArgument;
+      },
+      multiply() {
+        return this.firstArgument * this.secondArgument;
+      }
+    };
+
+    // измените вызовы внутри console.log
+    console.log(functions.sum.call(dataForSum));
+    console.log(functions.multiply.call(dataForMultiply));
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sprint-9</title>
+</head>
+
+<body>
+
+
+  <script>
+    // 'use strict'
+
+    const methods = {
+      consoleDog: function () {
+        console.log(this.dog);
+      },
+      consoleCat: function () {
+        console.log(this.cat);
+      },
+    };
+
+    const obj1 = Object.create(methods);
+
+    obj1.dog = 'Маламут';
+    obj1.cat = 'Русская голубая';
+
+    obj1.consoleDog(); // "Маламут"
+    obj1.consoleCat(); // "Русская голубая"
+
+    const obj2 = Object.create(methods);
+
+    obj2.dog = 'Борзая';
+    obj2.cat = 'Британская короткошерстная';
+
+    obj2.consoleDog(); // "Борзая"
+    obj2.consoleCat(); // "Британская короткошерстная"
+
+
+  </script>
+</body>
+
+</html>
