@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript</title>
+</head>
+
+<body>
+  <script>
+    const getFakePerson = async () => {
+      try {
+        let res = await fetch("https://api.randomuser.me/?nat=US&results=1");
+        let { results } = await res.json();
+        console.log(results);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getFakePerson();
+  </script>
+</body>
+
+</html>

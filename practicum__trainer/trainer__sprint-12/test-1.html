@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPRINT__11</title>
+</head>
+
+<body>
+
+
+
+  <script>
+
+    const vowels = ['а', 'я', 'о', 'ё', 'у', 'ю', 'ы', 'и', 'э', 'е'];
+
+    function findVowels(str) {
+      // напишите код здесь
+      let res, newArr;
+      res = str.split('');
+      newArr = res.map((item) => {
+        let number;
+
+        for (let i = 0; i < vowels.length; i++) {
+          if (item === vowels[i]) {
+            return number = 1;
+          }
+        }
+
+        if (typeof number === 'undefined') {
+          number = 0;
+        }
+        return number;
+      })
+      let sum = 0;
+      newArr.map((item) => {
+        sum += item;
+      })
+      return sum;
+    }
+
+    result1 = findVowels('здравствуй'); // 2
+    // result2 = findVowels('привет'); // 2
+    // result3 = findVowels('хеллоу'); // 3
+
+
+    console.log(result1);
+    // console.log(`
+    // ${result1}
+    // ${result2}
+    // ${result3}`)
+
+  </script>
+</body>
+
+</html>
