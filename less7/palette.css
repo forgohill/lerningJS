@@ -1,0 +1,39 @@
+.color1 {
+  color: #ffb884;
+}
+
+.color2 {
+  color: #fffb49;
+}
+
+.color3 {
+  color: #3d0f03;
+}
+
+.color4 {
+  color: #908279;
+}
+
+.color5 {
+  color: #fffaf2;
+}
+
+.color1__bg {
+  background-color: #391313;
+}
+
+.color2__bg {
+  background-color: #662f21;
+}
+
+.color3__bg {
+  background-color: #9b572e;
+}
+
+.color4__bg {
+  background-color: #d78e3a;
+}
+
+.color5__bg {
+  background-color: #ffd64a;
+}
